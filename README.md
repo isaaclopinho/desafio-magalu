@@ -2,7 +2,7 @@
 
 [![CI/CD](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml/badge.svg)](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/isaaclopinho/desafio-magalu/branch/master/graph/badge.svg)](https://codecov.io/gh/isaaclopinho/desafio-magalu)
-[![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
 ## Available Scripts
 
