@@ -19,7 +19,7 @@ const componentName = process.argv[3];
 const availableTypes = ['atom', 'molecule', 'organism', 'page', 'template'];
 
 const defaultErrorMessage = `
-Error. Correct usage is: npm run component [component type] [component name];
+Error. Correct usage is: npm run cc [component type] [component name];
 
 Available types: ${availableTypes.toString()};
 `;
@@ -33,6 +33,7 @@ const componentId = kebabToPascalCase(componentName);
 const folderPath = `./src/components/${componentType}s/${componentId}`;
 
 let componentFileTemplate = `import React, { memo } from 'react';
+import styles from './${componentId}.module.scss';
 
 export interface ${componentId}Props {}
 
@@ -45,6 +46,7 @@ export const ${componentId} = memo(${componentId}Component);
 
 if (['molecule', 'organism', 'page', 'template'].includes(componentType)) {
   componentFileTemplate = `import React, { memo } from 'react';
+  import styles from './${componentId}.module.scss';
 
 export interface ${componentId}Props {}
 
@@ -64,6 +66,7 @@ export const ${componentId} = memo(${componentId}Component, propsAreEqual);
 
 if (['page'].includes(componentType)) {
   componentFileTemplate = `import React from 'react';
+  import styles from './${componentId}.module.scss';
   
   export interface ${componentId}Props {}
   
@@ -89,10 +92,13 @@ const {} = render(<${componentId} />);
 const componentIndexTemplate = `export * from './${componentId}';
 `;
 
+const sass = '.Main {}';
+
 fs.mkdirSync(folderPath);
 fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
 fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
 fs.writeFileSync(`${folderPath}/${componentId}.spec.tsx`, componentTestTemplate);
+fs.writeFileSync(`${folderPath}/${componentId}.module.scss`, sass);
 fs.writeFileSync(`${folderPath}/index.ts`, componentIndexTemplate);
 fs.appendFileSync(`./src/components/${componentType}s/index.ts`, `export * from './${componentId}';
 `);
