@@ -53,3 +53,6 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
+        REACT_APP_MARVEL_API: ${{ secrets.REACT_APP_MARVEL_API }}
+        REACT_APP_MARVEL_API_PUBLIC_KEY: ${{ secrets.REACT_APP_MARVEL_API_PUBLIC_KEY }}
+        REACT_APP_MARVEL_API_PRIVATE_KEY: ${{ secrets.REACT_APP_MARVEL_API_PRIVATE_KEY }}
