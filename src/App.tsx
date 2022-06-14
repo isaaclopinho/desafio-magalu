@@ -1,8 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { logo } from 'assets/images';
+import React, { useEffect } from 'react';
+import { ExampleGet } from 'services/example';
 
-function App() {
+import './App.scss';
+
+function App(): JSX.Element {
+  useEffect(() => {
+    const getExample = async (): Promise<void> => {
+      const data = await ExampleGet();
+      console.log(data);
+    };
+
+    console.log('abc');
+    getExample();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
