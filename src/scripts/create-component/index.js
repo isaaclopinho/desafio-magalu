@@ -97,12 +97,12 @@ fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
 fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
 fs.writeFileSync(
   `${folderPath}/${componentId}.spec.tsx`,
-  componentTestTemplate,
+  componentTestTemplate
 );
 fs.writeFileSync(`${folderPath}/${componentId}.module.scss`, sass);
 fs.writeFileSync(`${folderPath}/index.ts`, componentIndexTemplate);
 fs.appendFileSync(
   `./src/components/${componentType}s/index.ts`,
   `export * from './${componentId}';
-`,
+`
 );
