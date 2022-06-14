@@ -5,7 +5,6 @@
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
 ## Conteúdo
-  - [Recursos relevantes](#recursos-relevantes)
   - [Sobre o projeto](#sobre-o-projeto)
   - [Instalação](#instalação)
     - [`Variáveis de ambiente`](#variáveis-de-ambiente)
@@ -16,9 +15,12 @@
   - [Testes unitários](#testes-unitários)
     - [`npm test`](#npm-test)
     - [`Codecov`](#codecov)
+  - [Scripts Auxiliares](#scripts-auxiliares)
+    - [`npm run cc`](#npm-run-cc)
+    - [`npm run lint`](#npm-run-lint)
+    - [`npm run predeploy`](#npm-run-predeploy)
+    - [`npm run deploy`](#npm-run-deploy)
   - [Para saber mais](#para-saber-mais)
-
-## Recursos relevantes
 
 ## Sobre o projeto
 
@@ -50,6 +52,13 @@ Inicia o executor de testes no modo de exibição interativa.
 Codecov é uma ferramenta de análise de código com a qual os usuários podem agrupar, mesclar, arquivar e comparar relatórios de cobertura. A cobertura de código descreve quais linhas de código foram executadas pelo conjunto de testes e quais não foram.
 
 Caso não queira executar os testes via linha de comando, é possível visualizar o [relatório](https://codecov.io/gh/isaaclopinho/desafio-magalu) de cobertura gerado pelo pipeline CI/CD.
+
+## Scripts Auxiliares
+
+### `npm run cc`
+### `npm run lint`
+### `npm run deploy`
+### `npm run predeploy`
 
 ## Para saber mais
 
