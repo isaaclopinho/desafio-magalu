@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Desafio Magalu - Frontend Sr.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![CI/CD](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml/badge.svg)](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml)
+[![codecov](https://codecov.io/gh/isaaclopinho/desafio-magalu/branch/master/graph/badge.svg)](https://codecov.io/gh/isaaclopinho/desafio-magalu)
+[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 ## Available Scripts
 
