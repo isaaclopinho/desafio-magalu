@@ -4,45 +4,56 @@
 [![codecov](https://codecov.io/gh/isaaclopinho/desafio-magalu/branch/master/graph/badge.svg)](https://codecov.io/gh/isaaclopinho/desafio-magalu)
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-## Available Scripts
+## Recursos relevantes
 
-In the project directory, you can run:
+## Conteúdo
+
+- [Desafio Magalu - Frontend Sr.](#desafio-magalu---frontend-sr)
+  - [Recursos relevantes](#recursos-relevantes)
+  - [Conteúdo](#conteúdo)
+  - [Sobre o projeto](#sobre-o-projeto)
+  - [Instalação](#instalação)
+    - [`Variáveis de ambiente`](#variáveis-de-ambiente)
+    - [`Dependências do projeto`](#dependências-do-projeto)
+  - [Inicialização](#inicialização)
+    - [`npm start`](#npm-start)
+    - [`npm run build`](#npm-run-build)
+  - [Testes unitários](#testes-unitários)
+    - [`npm test`](#npm-test)
+    - [`Codecov`](#codecov)
+  - [Para saber mais](#para-saber-mais)
+
+## Sobre o projeto
+
+## Instalação
+
+### `Variáveis de ambiente`
+
+### `Dependências do projeto`
+
+## Inicialização
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Executa o aplicativo em modo de desenvolvimento.\
+Abra o link [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compila o aplicativo para produção na pasta `build` e o aplicativo está pronto para ser implantado!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Testes unitários
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm test`
 
-### `npm run eject`
+Inicia o executor de testes no modo de exibição interativa.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `Codecov`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Codecov é uma ferramenta de análise de código com a qual os usuários podem agrupar, mesclar, arquivar e comparar relatórios de cobertura. A cobertura de código descreve quais linhas de código foram executadas pelo conjunto de testes e quais não foram.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Caso não queira executar os testes via linha de comando, é possível visualizar o [relatório](https://codecov.io/gh/isaaclopinho/desafio-magalu) de cobertura gerado pelo pipeline CI/CD.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Para saber mais
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Caso tenha alguma dúvida sobre React, confira a [documentação do React](https://reactjs.org/).
