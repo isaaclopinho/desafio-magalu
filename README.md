@@ -4,13 +4,8 @@
 [![codecov](https://codecov.io/gh/isaaclopinho/desafio-magalu/branch/master/graph/badge.svg)](https://codecov.io/gh/isaaclopinho/desafio-magalu)
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
-## Recursos relevantes
-
 ## Conteúdo
-
-- [Desafio Magalu - Frontend Sr.](#desafio-magalu---frontend-sr)
   - [Recursos relevantes](#recursos-relevantes)
-  - [Conteúdo](#conteúdo)
   - [Sobre o projeto](#sobre-o-projeto)
   - [Instalação](#instalação)
     - [`Variáveis de ambiente`](#variáveis-de-ambiente)
@@ -22,6 +17,8 @@
     - [`npm test`](#npm-test)
     - [`Codecov`](#codecov)
   - [Para saber mais](#para-saber-mais)
+
+## Recursos relevantes
 
 ## Sobre o projeto
 
