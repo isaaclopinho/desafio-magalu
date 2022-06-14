@@ -39,6 +39,9 @@
       "@assets/*": [
         "./src/assets/*"
       ],
+      "@types/*": [
+        "./src/types/*"
+      ],
   },
   },
   "include": [

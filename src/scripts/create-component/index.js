@@ -8,9 +8,7 @@ const capitalizeFirstLetter = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 const kebabToPascalCase = (text) => {
   const parts = text.toLowerCase().split('-');
 
-  return parts
-    .map((word) => capitalizeFirstLetter(word))
-    .join('');
+  return parts.map((word) => capitalizeFirstLetter(word)).join('');
 };
 
 const componentType = process.argv[2];
@@ -97,8 +95,14 @@ const sass = '.Main {}';
 fs.mkdirSync(folderPath);
 fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
 fs.writeFileSync(`${folderPath}/${componentId}.tsx`, componentFileTemplate);
-fs.writeFileSync(`${folderPath}/${componentId}.spec.tsx`, componentTestTemplate);
+fs.writeFileSync(
+  `${folderPath}/${componentId}.spec.tsx`,
+  componentTestTemplate,
+);
 fs.writeFileSync(`${folderPath}/${componentId}.module.scss`, sass);
 fs.writeFileSync(`${folderPath}/index.ts`, componentIndexTemplate);
-fs.appendFileSync(`./src/components/${componentType}s/index.ts`, `export * from './${componentId}';
-`);
+fs.appendFileSync(
+  `./src/components/${componentType}s/index.ts`,
+  `export * from './${componentId}';
+`,
+);
