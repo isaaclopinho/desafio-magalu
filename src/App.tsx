@@ -8,10 +8,8 @@ function App(): JSX.Element {
   useEffect(() => {
     const getExample = async (): Promise<void> => {
       const data = await ExampleGet();
-      console.log(data);
     };
 
-    console.log('abc');
     getExample();
   }, []);
 
