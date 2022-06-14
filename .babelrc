@@ -10,7 +10,8 @@
             "@utils": "./src/utils",
             "@api": "./src/api",
             "@services": "./src/services",
-            "@globals": "./src/globals"
+            "@globals": "./src/globals",
+            "@assets": "./src/assets"
           }
         }
       ]

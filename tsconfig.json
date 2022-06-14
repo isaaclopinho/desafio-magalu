@@ -36,6 +36,9 @@
       "@globals/*": [
         "./src/globals/*"
       ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
   },
   },
   "include": [
