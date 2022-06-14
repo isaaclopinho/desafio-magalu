@@ -7,9 +7,10 @@
           "root": ["./src/"],
           "alias": {
             "@components": "./src/components",
-            "@pages": "./src/pages",
-            "@styles": "./src/styles",
-            "@utils": "./src/utils"
+            "@utils": "./src/utils",
+            "@api": "./src/api",
+            "@services": "./src/services",
+            "@globals": "./src/globals"
           }
         }
       ]
