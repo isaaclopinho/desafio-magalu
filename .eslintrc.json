@@ -40,7 +40,8 @@
         "react/prop-types": "off",
         "linebreak-style": 0,
         "react/jsx-props-no-spreading": "off",
-        "eslintjsx-a11y/click-events-have-key-events": "off"
+        "eslintjsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     },
     "settings": {
         "import/resolver": {

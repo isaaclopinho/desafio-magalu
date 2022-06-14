@@ -1,0 +1,66 @@
+.family{
+    font-family: var(--font-family);
+}
+
+.h{
+    @extend .family;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-01)
+}
+
+
+.h1 {
+    @extend .h;
+    font-size: var(--font-size-lg);
+}
+
+.h2 {
+    @extend .h;   
+    font-size: var(--font-size-md);
+}
+
+.h3 {
+    @extend .h;   
+    font-size: var(--font-size-xsm);
+}
+
+.p1{
+    @extend .family;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-02);
+}
+
+.p2{
+    @extend .family;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-gray-02);
+}
+
+.p3{
+    @extend .family;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-01);
+}
+
+.p4{
+    @extend .family;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-gray-01);
+}
+
+.p5{
+    @extend .family;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-gray-01);
+}
+
+.p6{
+    @extend .family;
+    font-size: var(--font-size-xs);
+    color: var(--color-primary);
+}

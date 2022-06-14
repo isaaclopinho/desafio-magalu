@@ -1,8 +1,7 @@
-import { logo } from 'assets/images';
-import React, { useEffect } from 'react';
+import { Icon, Image, Typography } from 'components/atoms';
+import { Toggle } from 'components/atoms/Toggle';
+import React, { useEffect, useState } from 'react';
 import { ExampleGet } from 'services/example';
-
-import './App.scss';
 
 function App(): JSX.Element {
   useEffect(() => {
@@ -12,23 +11,22 @@ function App(): JSX.Element {
 
     getExample();
   }, []);
+  const [checked, setChecked] = useState(false);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Typography type="h1">LG_HEADER</Typography>
+      <Typography type="h2">LG_HEADER</Typography>
+      <Typography type="h3">LG_HEADER</Typography>
+      <Typography type="p1">LG_HEADER</Typography>
+      <Typography type="p2">LG_HEADER</Typography>
+      <Typography type="p3">LG_HEADER</Typography>
+      <Typography type="p4">LG_HEADER</Typography>
+      <Typography type="p5">LG_HEADER</Typography>
+      <Typography type="p6">LG_HEADER</Typography>
+      <Icon name="favoriteOf" />
+      <Image name="logo" width={256} height="50%" alt="logo" />
+      <Toggle checked={checked} onChecked={setChecked} />
     </div>
   );
 }
