@@ -1,3 +1,11 @@
 import logo from './logo.svg';
+import smallLogo from './logo_menor.svg';
 
-export { logo };
+const Images = {
+  logo,
+  smallLogo,
+};
+
+export type ImageNames = keyof typeof Images;
+
+export default Images;

@@ -38,7 +38,9 @@
         "react-hooks/exhaustive-deps": "warn",
         "import/prefer-default-export": "off",
         "react/prop-types": "off",
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "react/jsx-props-no-spreading": "off",
+        "eslintjsx-a11y/click-events-have-key-events": "off"
     },
     "settings": {
         "import/resolver": {
