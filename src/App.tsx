@@ -1,5 +1,6 @@
 import { Icon, Image, Typography } from 'components/atoms';
 import { Toggle } from 'components/atoms/Toggle';
+import { Input } from 'components/molecules';
 import React, { useEffect, useState } from 'react';
 import { ExampleGet } from 'services/example';
 
@@ -14,11 +15,20 @@ function App(): JSX.Element {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="App">
-      <Typography type="h1">LG_HEADER</Typography>
-      <Typography type="h2">LG_HEADER</Typography>
+    <div>
+      <Typography type="h1" color="primary-lighter">
+        LG_HEADER
+      </Typography>
+      <div style={{ width: '50%' }}>
+        <Input type="default" placeholder="ABC" />
+      </div>
+      <Typography type="h2" color="gray-lighter">
+        LG_HEADER
+      </Typography>
       <Typography type="h3">LG_HEADER</Typography>
-      <Typography type="p1">LG_HEADER</Typography>
+      <Typography type="p1" weight="bold" color="primary-light">
+        LG_HEADER
+      </Typography>
       <Typography type="p2">LG_HEADER</Typography>
       <Typography type="p3">LG_HEADER</Typography>
       <Typography type="p4">LG_HEADER</Typography>

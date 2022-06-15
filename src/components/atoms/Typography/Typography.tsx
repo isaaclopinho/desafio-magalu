@@ -11,23 +11,54 @@ const typeMapping: Record<string, 'h1' | 'h2' | 'h3' | 'p'> = {
   p4: 'p',
   p5: 'p',
   p6: 'p',
+  p7: 'p',
 };
 
 export type TypographyType = keyof typeof typeMapping;
 
+export type FontWeightType = 'regular' | 'bold' | 'semibold';
+
+export type FontColors =
+  | 'default'
+  | 'gray-light'
+  | 'gray-xlight'
+  | 'gray-lighter'
+  | 'primary'
+  | 'primary-light'
+  | 'primary-lighter'
+  | 'green-dark'
+  | 'green-light';
+
 export interface TypographyProps
   extends React.HtmlHTMLAttributes<HTMLParagraphElement> {
   type: TypographyType;
+  weight?: FontWeightType;
+  color?: FontColors;
 }
 
-function TypographyComponent({ type, ...props }: TypographyProps): JSX.Element {
+function TypographyComponent({
+  type,
+  weight,
+  color,
+  ...props
+}: TypographyProps): JSX.Element {
   const Component = typeMapping[type];
 
   return (
-    <Component className={styles[type]} {...props}>
+    <Component
+      {...props}
+      className={`${styles[type]} ${styles[`font-weight-${weight}`]} ${
+        styles[`font-color-${color}`]
+      }`}
+    >
       {props.children}
     </Component>
   );
 }
+
+TypographyComponent.defaultProps = {
+  weight: 'regular',
+  color: 'default',
+};
 
 export const Typography = memo(TypographyComponent);

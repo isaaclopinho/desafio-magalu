@@ -2,65 +2,100 @@
     font-family: var(--font-family);
 }
 
-.h{
-    @extend .family;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-01)
-}
-
-
 .h1 {
-    @extend .h;
+    @extend .family;
     font-size: var(--font-size-lg);
 }
 
 .h2 {
-    @extend .h;   
+    @extend .family;
     font-size: var(--font-size-md);
 }
 
 .h3 {
-    @extend .h;   
+    @extend .family;
     font-size: var(--font-size-xsm);
 }
 
 .p1{
     @extend .family;
     font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-gray-02);
 }
 
 .p2{
     @extend .family;
     font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-gray-02);
 }
 
 .p3{
     @extend .family;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-01);
+    font-size: var(--font-size-xsm);
 }
 
 .p4{
     @extend .family;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-gray-01);
+    font-size: var(--font-size-md);
 }
 
 .p5{
     @extend .family;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-regular);
-    color: var(--color-gray-01);
+    font-size: var(--font-size-xmd);
 }
 
 .p6{
     @extend .family;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-xxmd);
+}
+
+.p7{
+    @extend .family;
+    font-size: var(--font-size-lg);
+}
+
+.font-weight-regular {
+    font-weight: var(--font-weight-regular);
+}
+
+.font-weight-bold {
+    font-weight: var(--font-weight-bold);
+}
+
+.font-weight-semibold {
+    font-weight: var(--font-weight-semibold);
+}
+
+.font-color-default {
+    color: var(--color-gray-01);
+}
+
+.font-color-gray-light {
+    color: var(--color-gray-02);
+}
+
+.font-color-gray-xlight {
+    color: var(--color-gray-03);
+}
+
+.font-color-gray-lighter {
+    color: var(--color-gray-04);
+}
+
+.font-color-primary {
     color: var(--color-primary);
+}
+
+.font-color-primary-light {
+    color: var(--color-primary-light);
+}
+
+.font-color-primary-lighter {
+    color: var(--color-primary-lighter);
+}
+
+.font-color-green-dark {
+    color: var(--color-green-dark);
+}
+
+.font-color-green-light {
+    color: var(--color-green-light);
 }

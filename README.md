@@ -9,6 +9,7 @@
   - [Instalação](#instalação)
     - [`Variáveis de ambiente`](#variáveis-de-ambiente)
     - [`Dependências do projeto`](#dependências-do-projeto)
+    - [`Utilizando ESLint`](#utilizando-eslint)
   - [Inicialização](#inicialização)
     - [`npm start`](#npm-start)
     - [`npm run build`](#npm-run-build)
@@ -29,6 +30,8 @@
 ### `Variáveis de ambiente`
 
 ### `Dependências do projeto`
+
+### `Utilizando ESLint`
 
 ## Inicialização
 

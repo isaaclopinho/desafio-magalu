@@ -1,0 +1,67 @@
+.Main {
+    display: flex;
+}
+
+.Input {
+    padding: var(--spacing-xsm) var(--spacing-md);
+    border: 0px;
+    border-top-right-radius: 64px;
+    border-bottom-right-radius: 64px;
+    flex: 1;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.LeftContainer{
+    padding-left: var(--spacing-md);
+    padding-top: var(--spacing-xsm);
+    padding-bottom: var(--spacing-xsm);
+    border: 0px;
+    border-top-left-radius: 64px;
+    border-bottom-left-radius: 64px;
+    background-color: var(--color-primary-lighter);
+}
+
+.default {
+    background-color: var(--color-primary-lighter);
+    color: var(--color-gray-01);
+
+    &::placeholder {
+        color: var(--color-primary-light);
+        font-weight: var(--font-weight-regular);
+        opacity: 1; /* Firefox */
+      }
+      
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: var(--color-primary-light);
+        font-weight: var(--font-weight-regular);
+    }
+      
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: var(--color-primary-light);
+        font-weight: var(--font-weight-regular);
+    }
+}
+
+.white {
+    background-color: var(--color-green-light);
+    color: var(--color-gray-01);
+
+    &::placeholder {
+        color: var(--color-green-dark);
+        opacity: 1; /* Firefox */
+        font-weight: var(--font-weight-regular);
+      }
+      
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: var(--color-green-dark);
+        font-weight: var(--font-weight-regular);
+    }
+      
+    &::-ms-input-placeholder { /* Microsoft Edge */
+        color: var(--color-green-dark);
+        font-weight: var(--font-weight-regular);
+    }
+}
