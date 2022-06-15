@@ -47,5 +47,5 @@
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "src/scripts/create-component/index.js", "src/scripts/create-component/index.js"  ]
 }
