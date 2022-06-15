@@ -23,7 +23,7 @@ function InputComponent({
         {...props}
         disabled={disabled}
         type="text"
-        className={`${styles.Input} ${styles[type]} `}
+        className={`${styles.Input} ${styles[type]}`}
       />
     </div>
   );

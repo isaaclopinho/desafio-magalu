@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'globals/global.scss';
 import 'globals/theme.scss';
 import { BrowserRouter } from 'react-router-dom';
+import { Layout } from 'components/templates';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Layout>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Layout>
   </React.StrictMode>
 );
 

@@ -1,1 +1,23 @@
-.Main {}
+.sm-margin {
+    margin-bottom: var(--spacing-sm);
+}
+
+.lg-margin {
+    margin-bottom: var(--spacing-lg);
+}
+
+.input-container {
+    @media only screen and (max-width: 768px) {
+        min-width: 80%;
+      }
+
+    @media only screen and (min-width: 768px) {
+        min-width: 40%;
+    }
+}
+
+.Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

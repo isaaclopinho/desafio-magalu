@@ -18,6 +18,8 @@ export type TypographyType = keyof typeof typeMapping;
 
 export type FontWeightType = 'regular' | 'bold' | 'semibold';
 
+export type FontAlignType = 'left' | 'right' | 'center';
+
 export type FontColors =
   | 'default'
   | 'gray-light'
@@ -34,12 +36,14 @@ export interface TypographyProps
   type: TypographyType;
   weight?: FontWeightType;
   color?: FontColors;
+  align?: FontAlignType;
 }
 
 function TypographyComponent({
   type,
   weight,
   color,
+  align,
   ...props
 }: TypographyProps): JSX.Element {
   const Component = typeMapping[type];
@@ -47,9 +51,9 @@ function TypographyComponent({
   return (
     <Component
       {...props}
-      className={`${styles[type]} ${styles[`font-weight-${weight}`]} ${
-        styles[`font-color-${color}`]
-      }`}
+      className={`${styles[type]} ${styles[`font-align-${align}`]} ${
+        styles[`font-weight-${weight}`]
+      } ${styles[`font-color-${color}`]} ${props.className}`}
     >
       {props.children}
     </Component>
@@ -59,6 +63,7 @@ function TypographyComponent({
 TypographyComponent.defaultProps = {
   weight: 'regular',
   color: 'default',
+  align: 'left',
 };
 
 export const Typography = memo(TypographyComponent);
