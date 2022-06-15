@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { TestOrganism } from './index';
+import { Footer } from './index';
 
 it('renders correctly', () => {
-const {} = render(<TestOrganism />);
+  // const {} = render(<Footer />);
 });
