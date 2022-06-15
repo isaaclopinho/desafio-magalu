@@ -7,7 +7,7 @@ export interface FooterProps extends React.HtmlHTMLAttributes<HTMLElement> {
 
 function FooterComponent({ children, ...props }: FooterProps): JSX.Element {
   return (
-    <footer className={styles.Footer} {...props}>
+    <footer className={styles.footer} {...props}>
       {children}
     </footer>
   );

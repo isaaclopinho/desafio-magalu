@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import styles from './Typography.module.scss';
 
-const typeMapping: Record<string, 'h1' | 'h2' | 'h3' | 'p'> = {
+const typeMapping = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -12,7 +12,7 @@ const typeMapping: Record<string, 'h1' | 'h2' | 'h3' | 'p'> = {
   p5: 'p',
   p6: 'p',
   p7: 'p',
-};
+} as const;
 
 export type TypographyType = keyof typeof typeMapping;
 

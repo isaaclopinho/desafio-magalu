@@ -1,0 +1,15 @@
+.img {
+    border-bottom: 4px solid red;
+    margin-bottom: var(--spacing-md);
+}
+
+.mr{
+    margin-right: var(--spacing-lg);
+}
+
+.description-container {
+    max-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

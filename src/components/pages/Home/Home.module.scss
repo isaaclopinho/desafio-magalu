@@ -6,6 +6,10 @@
     margin-bottom: var(--spacing-lg);
 }
 
+.xlg-margin {
+    margin-bottom: var(--spacing-xlg);
+}
+
 .input-container {
     @media only screen and (max-width: 768px) {
         min-width: 80%;
@@ -20,4 +24,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mr{
+    margin-right: var(--spacing-lg);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.body-container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    min-height: 90vh;
+    width: 80%;
 }
