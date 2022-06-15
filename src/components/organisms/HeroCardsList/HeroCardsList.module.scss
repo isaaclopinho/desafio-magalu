@@ -4,3 +4,20 @@
     grid-auto-rows: auto;
     grid-gap: var(--spacing-rem-sm);
 }
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.image{
+    border-radius:25%;
+
+    @media only screen and (max-width: 768px) {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+}

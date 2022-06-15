@@ -41,7 +41,8 @@
         "linebreak-style": 0,
         "react/jsx-props-no-spreading": "off",
         "eslintjsx-a11y/click-events-have-key-events": "off",
-        "jsx-a11y/label-has-associated-control": "off"
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-underscore-dangle": "off"
     },
     "settings": {
         "import/resolver": {

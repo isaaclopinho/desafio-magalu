@@ -9,7 +9,7 @@ export interface LayoutProps {
 function LayoutComponent({ children }: LayoutProps): JSX.Element {
   return (
     <>
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer />
     </>
   );

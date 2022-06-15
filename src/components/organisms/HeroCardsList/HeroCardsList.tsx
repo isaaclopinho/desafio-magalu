@@ -1,18 +1,14 @@
+import { Image } from 'components/atoms';
 import { CardHero } from 'components/molecules';
 import React, { memo } from 'react';
+import { CharacterType } from 'services/types';
 import styles from './HeroCardsList.module.scss';
 
-export type HeroDataType = {
-  id: string;
-  src: string;
-  name: string;
-};
-
 export interface HeroCardsListProps {
-  data: HeroDataType[];
+  data: CharacterType[];
   disabled?: boolean;
-  favoriteArray?: string[];
-  onFavorite?: (id: string) => void;
+  favoriteArray?: number[];
+  onFavorite?: (id: number) => void;
   className?: string;
 }
 
@@ -23,22 +19,32 @@ function HeroCardsListComponent({
   className,
   favoriteArray,
 }: HeroCardsListProps): JSX.Element {
-  return (
+  return data.length > 0 ? (
     <div className={`${styles.main} ${className}`}>
-      {data.map((hero: HeroDataType) => {
+      {data.map((hero: CharacterType) => {
         const handleFavorite = (): void => onFavorite?.(hero.id);
 
         return (
           <CardHero
             key={hero.id}
             onFavorite={handleFavorite}
-            src={hero.src}
+            src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
             name={hero.name}
             isFavorite={favoriteArray?.includes(hero.id) ?? false}
             disabled={disabled}
           />
         );
       })}
+    </div>
+  ) : (
+    <div className={styles['image-container']}>
+      <Image
+        name="captain"
+        width="300px"
+        height="300px"
+        alt="captain america crying"
+        className={styles.image}
+      />
     </div>
   );
 }
@@ -59,6 +65,7 @@ const propsAreEqual = (
     'disabled',
     'onFavorite',
     'className',
+    'favoriteArray',
   ];
   return propsToCompare.every((prop) => prevProps[prop] === nextProps[prop]);
 };
