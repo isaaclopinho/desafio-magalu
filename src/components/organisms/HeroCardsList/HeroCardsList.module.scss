@@ -1,0 +1,24 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, var(--spacing-fr-sm)));
+    grid-auto-rows: auto;
+    grid-gap: var(--spacing-rem-sm);
+    flex: 1
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.image{
+    border-radius:25%;
+
+    @media only screen and (max-width: 768px) {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+}
