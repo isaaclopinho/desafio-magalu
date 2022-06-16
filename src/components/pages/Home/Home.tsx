@@ -1,9 +1,10 @@
 import { Image, Toggle, Typography } from 'components/atoms';
 import { IconText, Input } from 'components/molecules';
 import { HeroCardsList } from 'components/organisms';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { GetCharacters, GetCharactersReturnType } from 'services/characters';
 import { CharacterType } from 'services/types';
+import ReactPaginate from 'react-paginate';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
@@ -14,21 +15,18 @@ function Home(): JSX.Element {
   const [data, setData] = useState<CharacterType[]>([]);
   const [offset, setOffset] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
-  const [limit, setLimit] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [herosVisible, setHerosVisible] = useState<boolean>(false);
   const [toggleChecked, setToggleChecked] = useState<boolean>(false);
 
-  const resetStates = useCallback(() => {
+  const totalPages = useMemo(() => Math.ceil(total / 20), [total]);
+
+  const resetPages = useCallback(() => {
     setData([]);
-    setLimit(0);
     setCount(0);
     setTotal(0);
     setOffset(0);
-    setHasError(true);
-    setLoading(false);
     setHerosVisible(false);
-    setSearchTerm(null);
   }, []);
 
   useEffect(() => {
@@ -43,13 +41,12 @@ function Home(): JSX.Element {
         searchTerm: searchTerm ?? '',
         orderBy: 'name',
         limit: 20,
-        offset: 1,
+        offset,
       });
 
       if (!response._hasError) {
         const resp: GetCharactersReturnType = response;
         setData(resp.data.results);
-        setLimit(resp.data.limit);
         setCount(resp.data.count);
         setTotal(resp.data.total);
         setOffset(resp.data.offset);
@@ -58,32 +55,44 @@ function Home(): JSX.Element {
         setLoading(false);
         return;
       }
-      resetStates();
+      resetPages();
+      setHasError(true);
+      setLoading(false);
+      setHerosVisible(false);
+      setSearchTerm(null);
     };
 
     GetData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
-  const handleSearch = useCallback(() => {
-    if (!loading) {
-      setLoading(true);
-    }
-  }, [loading]);
+  const handleSearch = useCallback(
+    (str: string) => {
+      if (str.length === 0) {
+        setSearchTerm(null);
+        setData([]);
+        resetPages();
+
+        return;
+      }
+
+      if (!loading) {
+        setLoading(true);
+      }
+      setOffset(0);
+    },
+    [loading, resetPages]
+  );
 
   const settingSearchTerm = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchTerm(e.target.value);
-
-      if (e.target.value.length === 0) {
-        resetStates();
-      }
     },
-    [resetStates]
+    []
   );
 
   return (
-    <div className={!herosVisible ? styles['full-height'] : ''}>
+    <div className={styles['full-height']}>
       <div
         className={`${styles.Header} ${
           !herosVisible ? styles['full-height'] : ''
@@ -136,7 +145,7 @@ function Home(): JSX.Element {
                   : ''}
               </Typography>
 
-              <div style={{ display: 'flex' }}>
+              <div className={styles.filter}>
                 <IconText
                   iconName="hero"
                   fontColor="primary"
@@ -162,12 +171,40 @@ function Home(): JSX.Element {
                 />
               </div>
             </div>
-
             <HeroCardsList
               data={data}
               favoriteArray={[]}
               className={styles['xlg-margin']}
             />
+            <div
+              style={{
+                display: 'flex',
+                pointerEvents: loading ? 'none' : 'auto',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <ReactPaginate
+                breakLabel="..."
+                nextLabel=">"
+                previousLabel="<"
+                onPageChange={({ selected }) => {
+                  if (loading) {
+                    return;
+                  }
+                  setOffset(selected * 20);
+                  setLoading(true);
+                }}
+                pageRangeDisplayed={5}
+                pageCount={totalPages}
+                forcePage={Math.floor(offset / 20)}
+                marginPagesDisplayed={0}
+                activeClassName={styles.active}
+                disableInitialCallback
+                renderOnZeroPageCount={() => null}
+                className={styles.pagination}
+              />
+            </div>
           </div>
         </div>
       )}

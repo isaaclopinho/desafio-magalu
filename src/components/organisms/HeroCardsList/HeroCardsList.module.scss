@@ -1,8 +1,9 @@
 .main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, var(--spacing-fr-sm)));
+    grid-template-columns: repeat(auto-fill, minmax(300px, var(--spacing-fr-sm)));
     grid-auto-rows: auto;
     grid-gap: var(--spacing-rem-sm);
+    flex: 1
 }
 
 .image-container {

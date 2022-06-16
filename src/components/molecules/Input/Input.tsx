@@ -25,10 +25,6 @@ function InputComponent({
 }: InputProps): JSX.Element {
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      if (value.length === 0 || !value) {
-        return;
-      }
-
       if (setCurrentQuery != null) {
         setCurrentQuery(value);
       }

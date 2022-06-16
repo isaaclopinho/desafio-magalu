@@ -21,8 +21,8 @@ function CardHeroComponent({
     <div>
       <img
         src={src}
-        width="200px"
-        height="196px"
+        width="300px"
+        height="300px"
         alt="img"
         className={`${styles.mr} ${styles.img}`}
       />
