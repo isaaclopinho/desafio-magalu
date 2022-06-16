@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Icon, Spinner } from 'components/atoms';
 import React, { memo, useEffect } from 'react';
 import styles from './Input.module.scss';
@@ -10,7 +9,7 @@ export interface InputProps extends React.HtmlHTMLAttributes<HTMLInputElement> {
   loading?: boolean;
   value: string;
   setValue: React.ChangeEventHandler<HTMLInputElement>;
-  setCurrentQuery: (str: string) => void;
+  setCurrentQuery?: (str: string) => void;
 }
 
 function InputComponent({
@@ -24,12 +23,18 @@ function InputComponent({
   ...props
 }: InputProps): JSX.Element {
   useEffect(() => {
+    if (!setCurrentQuery) {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      return () => {};
+    }
+
     const timeOutId = setTimeout(() => {
       if (setCurrentQuery != null) {
         setCurrentQuery(value);
       }
     }, 500);
     return () => clearTimeout(timeOutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   return (
@@ -53,6 +58,7 @@ InputComponent.defaultProps = {
   className: undefined,
   disabled: false,
   loading: false,
+  setCurrentQuery: undefined,
 };
 
 export const Input = memo(InputComponent);

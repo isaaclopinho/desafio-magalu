@@ -18,10 +18,13 @@ import {
 } from 'services/favorites';
 import { notifyError } from 'utils/toasts';
 import CharacterContext from 'context/characters';
+import { useNavigate } from 'react-router-dom';
+import { clamp } from 'utils/math';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
-  const { setState, state } = useContext(CharacterContext);
+  const { setState } = useContext(CharacterContext);
+  const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
 
@@ -34,6 +37,10 @@ function Home(): JSX.Element {
   const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
 
   const totalPages = useMemo(() => Math.ceil(total / 20), [total]);
+  const currentPage = useMemo(
+    () => Math.floor(clamp(offset, 0, Number.MAX_SAFE_INTEGER) / 20),
+    [offset]
+  );
 
   const resetPages = useCallback(() => {
     setData([]);
@@ -92,8 +99,8 @@ function Home(): JSX.Element {
 
       if (!loading) {
         setLoading(true);
+        setOffset(0);
       }
-      setOffset(0);
     },
     [loading, resetPages]
   );
@@ -118,8 +125,9 @@ function Home(): JSX.Element {
   const onCharacterClick = useCallback(
     (character: CharacterType) => {
       setState(character);
+      navigate(`/desafio-magalu/character/${character.id}`);
     },
-    [setState]
+    [setState, navigate]
   );
 
   return (
@@ -235,7 +243,7 @@ function Home(): JSX.Element {
                   }}
                   pageRangeDisplayed={5}
                   pageCount={totalPages}
-                  forcePage={Math.floor(offset / 20)}
+                  forcePage={currentPage}
                   marginPagesDisplayed={0}
                   activeClassName={styles.active}
                   disableInitialCallback
