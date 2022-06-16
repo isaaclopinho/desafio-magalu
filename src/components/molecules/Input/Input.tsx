@@ -39,7 +39,7 @@ function InputComponent({
 
   return (
     <div className={`${styles.Main} ${className}`}>
-      <div className={styles.LeftContainer}>
+      <div className={`${styles.LeftContainer} ${styles[type]}`}>
         {loading ? <Spinner size="sm" /> : <Icon name="search" />}
       </div>
       <input
