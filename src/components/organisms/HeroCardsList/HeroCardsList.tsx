@@ -7,8 +7,8 @@ import styles from './HeroCardsList.module.scss';
 export interface HeroCardsListProps {
   data: CharacterType[];
   disabled?: boolean;
-  favoriteArray?: number[];
-  onFavorite?: (id: number) => void;
+  favoriteArray?: CharacterType[];
+  onFavorite?: (char: CharacterType) => void;
   className?: string;
 }
 
@@ -22,7 +22,7 @@ function HeroCardsListComponent({
   return data.length > 0 ? (
     <div className={`${styles.main} ${className}`}>
       {data.map((hero: CharacterType) => {
-        const handleFavorite = (): void => onFavorite?.(hero.id);
+        const handleFavorite = (): void => onFavorite?.(hero);
 
         return (
           <CardHero
@@ -30,7 +30,7 @@ function HeroCardsListComponent({
             onFavorite={handleFavorite}
             src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
             name={hero.name}
-            isFavorite={favoriteArray?.includes(hero.id) ?? false}
+            isFavorite={favoriteArray?.find((x) => x.id === hero.id) != null}
             disabled={disabled}
           />
         );

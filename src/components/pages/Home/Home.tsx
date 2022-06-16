@@ -5,6 +5,12 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { GetCharacters, GetCharactersReturnType } from 'services/characters';
 import { CharacterType } from 'services/types';
 import ReactPaginate from 'react-paginate';
+import {
+  favoriteCharacter,
+  getFavorites,
+  maxFavorites,
+} from 'services/favorites';
+import { notifyError } from 'utils/toasts';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
@@ -18,6 +24,7 @@ function Home(): JSX.Element {
   const [count, setCount] = useState<number>(0);
   const [herosVisible, setHerosVisible] = useState<boolean>(false);
   const [toggleChecked, setToggleChecked] = useState<boolean>(false);
+  const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
 
   const totalPages = useMemo(() => Math.ceil(total / 20), [total]);
 
@@ -173,8 +180,17 @@ function Home(): JSX.Element {
             </div>
             <HeroCardsList
               data={data}
-              favoriteArray={[]}
+              favoriteArray={favorites}
               className={styles['xlg-margin']}
+              onFavorite={(character: CharacterType) => {
+                const lsFavorites = favoriteCharacter({ character });
+
+                if (lsFavorites.limitReached) {
+                  notifyError(`O máximo de favoritos é ${maxFavorites}.`);
+                }
+
+                setFavorites(lsFavorites.characters);
+              }}
             />
             <div
               style={{

@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import 'react-toastify/dist/ReactToastify.css';
 import 'globals/global.scss';
 import 'globals/theme.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { Layout } from 'components/templates';
+import { ToastContainer } from 'react-toastify';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,6 +18,7 @@ root.render(
     <Layout>
       <BrowserRouter>
         <App />
+        <ToastContainer autoClose={4000} />
       </BrowserRouter>
     </Layout>
   </React.StrictMode>
