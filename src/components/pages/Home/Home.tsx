@@ -55,10 +55,9 @@ function Home(): JSX.Element {
         setOffset(resp.data.offset);
         setHerosVisible(true);
         setLoading(false);
-
-        notifyError('Ooops! Algo deu errado.');
         return;
       }
+      notifyError('Ooops! Algo deu errado.');
 
       resetPages();
       setLoading(false);
