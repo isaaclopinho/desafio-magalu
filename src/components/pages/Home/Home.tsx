@@ -169,6 +169,7 @@ function Home(): JSX.Element {
                   iconSize={25}
                   text="Ordenar por nome - A/Z"
                   className={styles.mr}
+                  textClassName={styles.text}
                 />
                 <Toggle
                   checked={toggleChecked}
@@ -183,6 +184,7 @@ function Home(): JSX.Element {
                   fontType="p1"
                   iconSize={18}
                   text="Somente Favoritos"
+                  textClassName={styles.text}
                 />
               </div>
             </div>
