@@ -13,7 +13,7 @@
 .input-container {
     @media only screen and (max-width: 768px) {
         min-width: 80%;
-      }
+    }
 
     @media only screen and (min-width: 768px) {
         min-width: 40%;
@@ -103,4 +103,19 @@
 
     @media only screen and (min-width: 768px) {        
     }
+}
+
+.icon{
+    @media only screen and (max-width: 768px) {
+        margin-right: var(--spacing-zero);
+    }
+
+    @media only screen and (min-width: 768px) {     
+        margin-right: var(--spacing-sm);
+    }
+}
+
+.toggle {
+    margin-right: var(--spacing-sm);
+    margin-left: var(--spacing-sm);
 }

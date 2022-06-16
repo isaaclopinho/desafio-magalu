@@ -1,7 +1,13 @@
 import { Image, Toggle, Typography } from 'components/atoms';
 import { IconText, Input } from 'components/molecules';
 import { HeroCardsList } from 'components/organisms';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { GetCharacters, GetCharactersReturnType } from 'services/characters';
 import { CharacterType } from 'services/types';
 import ReactPaginate from 'react-paginate';
@@ -11,9 +17,12 @@ import {
   maxFavorites,
 } from 'services/favorites';
 import { notifyError } from 'utils/toasts';
+import CharacterContext from 'context/characters';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
+  const { setState, state } = useContext(CharacterContext);
+
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -106,6 +115,13 @@ function Home(): JSX.Element {
     setFavorites(lsFavorites.characters);
   }, []);
 
+  const onCharacterClick = useCallback(
+    (character: CharacterType) => {
+      setState(character);
+    },
+    [setState]
+  );
+
   return (
     <div className={styles['full-height']}>
       <div
@@ -168,14 +184,14 @@ function Home(): JSX.Element {
                   fontType="p1"
                   iconSize={25}
                   text="Ordenar por nome - A/Z"
-                  className={styles.mr}
                   textClassName={styles.text}
+                  iconClassName={styles.icon}
                 />
                 <Toggle
                   checked={toggleChecked}
                   onChecked={setToggleChecked}
-                  className={styles.mr}
                   disabled={loading}
+                  className={styles.toggle}
                 />
                 <IconText
                   iconName="favoriteOn"
@@ -185,6 +201,7 @@ function Home(): JSX.Element {
                   iconSize={18}
                   text="Somente Favoritos"
                   textClassName={styles.text}
+                  iconClassName={styles.icon}
                 />
               </div>
             </div>
@@ -193,6 +210,8 @@ function Home(): JSX.Element {
               favoriteArray={favorites}
               className={styles['xlg-margin']}
               onFavorite={onFavorite}
+              onClick={onCharacterClick}
+              disabled={loading}
             />
             <div
               style={{

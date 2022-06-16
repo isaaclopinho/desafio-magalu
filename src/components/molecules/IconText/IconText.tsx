@@ -18,6 +18,7 @@ export interface IconTextProps {
   text: string;
   className?: string;
   textClassName?: string;
+  iconClassName?: string;
 }
 
 function IconTextComponent({
@@ -29,10 +30,15 @@ function IconTextComponent({
   text,
   className,
   textClassName,
+  iconClassName,
 }: IconTextProps): JSX.Element {
   return (
     <div className={`${styles.Main} ${className}`}>
-      <Icon name={iconName} size={iconSize} className={styles.mr} />
+      <Icon
+        name={iconName}
+        size={iconSize}
+        className={iconClassName ?? styles.mr}
+      />
       <Typography
         type={fontType}
         color={fontColor}
@@ -48,6 +54,7 @@ function IconTextComponent({
 IconTextComponent.defaultProps = {
   className: undefined,
   textClassName: undefined,
+  iconClassName: undefined,
 };
 
 const propsAreEqual = (
@@ -60,6 +67,7 @@ const propsAreEqual = (
     'className',
     'text',
     'textClassName',
+    'iconClassName',
   ];
   return propsToCompare.every((prop) => prevProps[prop] === nextProps[prop]);
 };
