@@ -1,16 +1,27 @@
 {
   "files": {
-    "main.css": "/desafio-magalu/static/css/main.eeb4ae37.css",
-    "main.js": "/desafio-magalu/static/js/main.39a0cc37.js",
+    "main.css": "/desafio-magalu/static/css/main.399ebb93.css",
+    "main.js": "/desafio-magalu/static/js/main.ffb9187d.js",
     "static/js/787.c6491225.chunk.js": "/desafio-magalu/static/js/787.c6491225.chunk.js",
-    "static/media/logo.svg": "/desafio-magalu/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/captain-america-crying.png": "/desafio-magalu/static/media/captain-america-crying.04cf020e4b79736def65.png",
+    "static/media/logo.svg": "/desafio-magalu/static/media/logo.66aae77137a240c352d25d571db83759.svg",
+    "static/media/logo_menor.svg": "/desafio-magalu/static/media/logo_menor.55b92de41d1c81beaa69f33d1e167acd.svg",
+    "static/media/ic_heroi.svg": "/desafio-magalu/static/media/ic_heroi.401cb5f19924fa11ff45f0c863b6da28.svg",
+    "static/media/ic_trailer.svg": "/desafio-magalu/static/media/ic_trailer.a3eecf661918db93d1ef28ca4d3726dd.svg",
+    "static/media/ic_quadrinhos.svg": "/desafio-magalu/static/media/ic_quadrinhos.7e8c32136c710803f430e7ddd731fd6a.svg",
+    "static/media/ic_busca_menor.svg": "/desafio-magalu/static/media/ic_busca_menor.7d4fff01c3fd233f60ebadb0ffbfd665.svg",
+    "static/media/ic_busca.svg": "/desafio-magalu/static/media/ic_busca.b6bb5afd20c15b31e38a230e9657f85f.svg",
+    "static/media/ic_avaliacao_off.svg": "/desafio-magalu/static/media/ic_avaliacao_off.f439d127735acf20d6343fba842dc5d3.svg",
+    "static/media/ic_avaliacao_on.svg": "/desafio-magalu/static/media/ic_avaliacao_on.b50ecbbfb4e1d6138afa027902b97bfb.svg",
+    "static/media/ic_coracao_vazio.svg": "/desafio-magalu/static/media/ic_coracao_vazio.d84c4d2f159ae482a79d538255ec754a.svg",
+    "static/media/ic_coracao.svg": "/desafio-magalu/static/media/ic_coracao.4032fb6a35d9a756a3b67961522b5f0f.svg",
     "index.html": "/desafio-magalu/index.html",
-    "main.eeb4ae37.css.map": "/desafio-magalu/static/css/main.eeb4ae37.css.map",
-    "main.39a0cc37.js.map": "/desafio-magalu/static/js/main.39a0cc37.js.map",
+    "main.399ebb93.css.map": "/desafio-magalu/static/css/main.399ebb93.css.map",
+    "main.ffb9187d.js.map": "/desafio-magalu/static/js/main.ffb9187d.js.map",
     "787.c6491225.chunk.js.map": "/desafio-magalu/static/js/787.c6491225.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eeb4ae37.css",
-    "static/js/main.39a0cc37.js"
+    "static/css/main.399ebb93.css",
+    "static/js/main.ffb9187d.js"
   ]
 }
