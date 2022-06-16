@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/desafio-magalu/static/css/main.399ebb93.css",
-    "main.js": "/desafio-magalu/static/js/main.ffb9187d.js",
+    "main.js": "/desafio-magalu/static/js/main.ee0cbc18.js",
     "static/js/787.c6491225.chunk.js": "/desafio-magalu/static/js/787.c6491225.chunk.js",
     "static/media/captain-america-crying.png": "/desafio-magalu/static/media/captain-america-crying.04cf020e4b79736def65.png",
     "static/media/logo.svg": "/desafio-magalu/static/media/logo.66aae77137a240c352d25d571db83759.svg",
@@ -17,11 +17,11 @@
     "static/media/ic_coracao.svg": "/desafio-magalu/static/media/ic_coracao.4032fb6a35d9a756a3b67961522b5f0f.svg",
     "index.html": "/desafio-magalu/index.html",
     "main.399ebb93.css.map": "/desafio-magalu/static/css/main.399ebb93.css.map",
-    "main.ffb9187d.js.map": "/desafio-magalu/static/js/main.ffb9187d.js.map",
+    "main.ee0cbc18.js.map": "/desafio-magalu/static/js/main.ee0cbc18.js.map",
     "787.c6491225.chunk.js.map": "/desafio-magalu/static/js/787.c6491225.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.399ebb93.css",
-    "static/js/main.ffb9187d.js"
+    "static/js/main.ee0cbc18.js"
   ]
 }
