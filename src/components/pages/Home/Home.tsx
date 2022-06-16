@@ -17,11 +17,9 @@ function Home(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
 
   const [loading, setLoading] = useState<boolean>(false);
-  const [hasError, setHasError] = useState<boolean>(false);
   const [data, setData] = useState<CharacterType[]>([]);
   const [offset, setOffset] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
-  const [count, setCount] = useState<number>(0);
   const [herosVisible, setHerosVisible] = useState<boolean>(false);
   const [toggleChecked, setToggleChecked] = useState<boolean>(false);
   const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
@@ -30,7 +28,6 @@ function Home(): JSX.Element {
 
   const resetPages = useCallback(() => {
     setData([]);
-    setCount(0);
     setTotal(0);
     setOffset(0);
     setHerosVisible(false);
@@ -54,16 +51,16 @@ function Home(): JSX.Element {
       if (!response._hasError) {
         const resp: GetCharactersReturnType = response;
         setData(resp.data.results);
-        setCount(resp.data.count);
         setTotal(resp.data.total);
         setOffset(resp.data.offset);
         setHerosVisible(true);
-        setHasError(false);
         setLoading(false);
+
+        notifyError('Ooops! Algo deu errado.');
         return;
       }
+
       resetPages();
-      setHasError(true);
       setLoading(false);
       setHerosVisible(false);
       setSearchTerm(null);
@@ -97,6 +94,16 @@ function Home(): JSX.Element {
     },
     []
   );
+
+  const onFavorite = useCallback((character: CharacterType) => {
+    const lsFavorites = favoriteCharacter({ character });
+
+    if (lsFavorites.limitReached) {
+      notifyError(`O máximo de favoritos é ${maxFavorites}.`);
+    }
+
+    setFavorites(lsFavorites.characters);
+  }, []);
 
   return (
     <div className={styles['full-height']}>
@@ -182,15 +189,7 @@ function Home(): JSX.Element {
               data={data}
               favoriteArray={favorites}
               className={styles['xlg-margin']}
-              onFavorite={(character: CharacterType) => {
-                const lsFavorites = favoriteCharacter({ character });
-
-                if (lsFavorites.limitReached) {
-                  notifyError(`O máximo de favoritos é ${maxFavorites}.`);
-                }
-
-                setFavorites(lsFavorites.characters);
-              }}
+              onFavorite={onFavorite}
             />
             <div
               style={{
