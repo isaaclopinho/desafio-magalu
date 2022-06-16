@@ -55,6 +55,8 @@ function Home(): JSX.Element {
         setOffset(resp.data.offset);
         setHerosVisible(true);
         setLoading(false);
+        setToggleChecked(false);
+
         return;
       }
       notifyError('Ooops! Algo deu errado.');
@@ -152,9 +154,9 @@ function Home(): JSX.Element {
             >
               <Typography type="p3" weight="regular" color="gray-light">
                 {searchTerm !== null
-                  ? `Encontrado${total > 1 ? 's' : ''} ${total} herói${
-                      total > 1 ? 's' : ''
-                    }`
+                  ? `Encontrado${total > 1 ? 's' : ''} ${
+                      toggleChecked ? favorites.length : total
+                    } herói${total > 1 ? 's' : ''}`
                   : ''}
               </Typography>
 
@@ -185,7 +187,7 @@ function Home(): JSX.Element {
               </div>
             </div>
             <HeroCardsList
-              data={data}
+              data={toggleChecked ? favorites : data}
               favoriteArray={favorites}
               className={styles['xlg-margin']}
               onFavorite={onFavorite}
@@ -198,26 +200,28 @@ function Home(): JSX.Element {
                 alignItems: 'center',
               }}
             >
-              <ReactPaginate
-                breakLabel="..."
-                nextLabel=">"
-                previousLabel="<"
-                onPageChange={({ selected }) => {
-                  if (loading) {
-                    return;
-                  }
-                  setOffset(selected * 20);
-                  setLoading(true);
-                }}
-                pageRangeDisplayed={5}
-                pageCount={totalPages}
-                forcePage={Math.floor(offset / 20)}
-                marginPagesDisplayed={0}
-                activeClassName={styles.active}
-                disableInitialCallback
-                renderOnZeroPageCount={() => null}
-                className={styles.pagination}
-              />
+              {!toggleChecked && (
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  previousLabel="<"
+                  onPageChange={({ selected }) => {
+                    if (loading) {
+                      return;
+                    }
+                    setOffset(selected * 20);
+                    setLoading(true);
+                  }}
+                  pageRangeDisplayed={5}
+                  pageCount={totalPages}
+                  forcePage={Math.floor(offset / 20)}
+                  marginPagesDisplayed={0}
+                  activeClassName={styles.active}
+                  disableInitialCallback
+                  renderOnZeroPageCount={() => null}
+                  className={styles.pagination}
+                />
+              )}
             </div>
           </div>
         </div>
