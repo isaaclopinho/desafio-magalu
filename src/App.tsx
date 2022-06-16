@@ -5,8 +5,8 @@ import { Home } from 'components/pages';
 function App(): JSX.Element {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<div />} />
+      <Route path="/desafio-magalu/" element={<Home />} />
+      <Route path="/desafio-magalu/about" element={<div />} />
     </Routes>
   );
 }
