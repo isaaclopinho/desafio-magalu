@@ -6,6 +6,7 @@ import 'globals/theme.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { Layout } from 'components/templates';
 import { ToastContainer } from 'react-toastify';
+import GlobalContext from 'context';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,10 +17,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Layout>
-      <BrowserRouter>
-        <App />
-        <ToastContainer autoClose={4000} />
-      </BrowserRouter>
+      <GlobalContext>
+        <BrowserRouter>
+          <App />
+          <ToastContainer autoClose={4000} />
+        </BrowserRouter>
+      </GlobalContext>
     </Layout>
   </React.StrictMode>
 );

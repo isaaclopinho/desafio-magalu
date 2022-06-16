@@ -12,7 +12,8 @@
             "@services": "./src/services",
             "@globals": "./src/globals",
             "@assets": "./src/assets",
-            "@types": "./src/types"
+            "@types": "./src/types",
+            "@context": "./src/context"
           }
         }
       ]
