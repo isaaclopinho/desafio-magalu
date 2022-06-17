@@ -24,8 +24,7 @@ function InputComponent({
 }: InputProps): JSX.Element {
   useEffect(() => {
     if (!setCurrentQuery) {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      return () => {};
+      return () => '';
     }
 
     const timeOutId = setTimeout(() => {
