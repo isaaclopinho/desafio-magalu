@@ -1,0 +1,10 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-auto-rows: auto;
+    row-gap: var(--spacing-rem-sm);
+    column-gap:  var(--spacing-rem-sm);
+
+    align-content: space-between;
+    justify-content: space-around;
+}

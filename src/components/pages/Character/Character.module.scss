@@ -1,0 +1,100 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: var(--color-green);
+}
+
+.logo {
+    display: flex; 
+    align-items: flex-end;
+}
+
+.text-logo{
+    @media only screen and (max-width: 600px) {
+        display: none;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: var(--spacing-md)
+}
+
+
+.input-container {
+    min-width: 60%;
+}
+
+.body-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 80%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+.sm-margin {
+    margin-bottom: var(--spacing-sm);
+}
+
+.md-margin {
+    margin-bottom: var(--spacing-md);
+}
+
+.lg-margin {
+    margin-bottom: var(--spacing-lg);
+}
+
+.xlg-margin {
+    margin-bottom: var(--spacing-xlg);
+}
+
+.hero-image {
+    border-radius:50%;
+}
+
+.line {
+    line-height: var(--spacing-xxmd);
+}
+
+
+.hero-description {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    row-gap: var(--spacing-md);
+    justify-content: space-between;
+
+
+}
+
+.mr{
+    margin-right: var(--spacing-sm);
+}
+
+.header-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counter-sections{
+    display: flex;
+    justify-content: space-between;
+}
+
+.last-comic-container{
+    display: flex;
+}
+
+.comic-section {
+    width: 100%;
+}
