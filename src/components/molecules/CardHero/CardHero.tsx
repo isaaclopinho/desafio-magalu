@@ -1,6 +1,5 @@
 import { Icon, Typography } from 'components/atoms';
 import React, { memo } from 'react';
-import { CharacterType } from 'services/types';
 import styles from './CardHero.module.scss';
 
 export interface CardHeroProps {

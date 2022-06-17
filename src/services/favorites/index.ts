@@ -1,4 +1,4 @@
-import { CharacterType } from 'services/types';
+import { CharacterType } from 'services/characters/types';
 
 export const favoriteKey = 'FAVORITES';
 

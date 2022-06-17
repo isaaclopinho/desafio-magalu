@@ -1,10 +1,11 @@
 import { Typography } from 'components/atoms';
 import { ComicCard } from 'components/molecules/ComicCard';
 import React, { memo } from 'react';
+import { ComicType } from 'services/characters/types';
 import styles from './ComicsList.module.scss';
 
 export interface ComicsListProps {
-  data: { id: number; src: string; title: string }[];
+  data: ComicType[];
   textEmpty: string;
 }
 
@@ -15,7 +16,11 @@ function ComicsListComponent({
   return data.length > 0 ? (
     <div className={styles.main}>
       {data.map((comic) => (
-        <ComicCard key={comic.id} src={comic.src} title={comic.title} />
+        <ComicCard
+          key={comic.id}
+          src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+          title={comic.title}
+        />
       ))}
     </div>
   ) : (

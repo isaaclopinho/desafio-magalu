@@ -8,8 +8,11 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { GetCharacters, GetCharactersReturnType } from 'services/characters';
-import { CharacterType } from 'services/types';
+import { GetCharacters } from 'services/characters';
+import {
+  CharacterType,
+  GetCharactersReturnType,
+} from 'services/characters/types';
 import ReactPaginate from 'react-paginate';
 import {
   favoriteCharacter,

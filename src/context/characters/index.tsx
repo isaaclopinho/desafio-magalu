@@ -1,5 +1,5 @@
 import React, { createContext, ReactElement, useMemo, useState } from 'react';
-import { CharacterType } from 'services/types';
+import { CharacterType } from 'services/characters/types';
 
 type CharacterContextProps = {
   state: CharacterType | null;

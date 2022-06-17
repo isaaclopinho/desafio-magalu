@@ -1,46 +1,71 @@
 import { Icon, Image, Typography } from 'components/atoms';
 import { Input } from 'components/molecules';
-import { ComicCard } from 'components/molecules/ComicCard';
 import { CounterSection } from 'components/molecules/CounterSection';
 import { Ratings } from 'components/molecules/Ratings';
 import { ComicsList } from 'components/organisms/ComicsList';
 import CharacterContext from 'context/characters';
 import moment from 'moment';
-import React, { useCallback, useContext, useMemo, useState } from 'react';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   favoriteCharacter,
   getFavorites,
   maxFavorites,
 } from 'services/favorites';
-import { CharacterType } from 'services/types';
+import {
+  CharacterType,
+  ComicType,
+  GetComicsByCharacterIdReturnType,
+} from 'services/characters/types';
 import { notifyError } from 'utils/toasts';
+import { GetComicsByCharacterId } from 'services/characters';
 import styles from './Character.module.scss';
-
-const mock = [
-  {
-    id: 1,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/450px-Gull_portrait_ca_usa.jpg',
-    title: 'TESTE HEROIasdd sdadsads',
-  },
-  {
-    id: 12,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/450px-Gull_portrait_ca_usa.jpg',
-    title: 'TESTE HERs',
-  },
-  {
-    id: 1123123,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/450px-Gull_portrait_ca_usa.jpg',
-    title: 'TESTE HEROIads',
-  },
-  {
-    id: 11241142,
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gull_portrait_ca_usa.jpg/450px-Gull_portrait_ca_usa.jpg',
-    title: 'Tdsads',
-  },
-];
 
 function Character(): JSX.Element {
   const { state } = useContext(CharacterContext);
+  const [data, setData] = useState<ComicType[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (state === null) {
+      navigate('/desafio-magalu');
+    }
+  }, [state, navigate]);
+
+  useEffect(() => {
+    if (state === null) {
+      return;
+    }
+
+    const GetData = async (): Promise<void> => {
+      setLoading(true);
+
+      const response = await GetComicsByCharacterId({
+        id: state?.id,
+        limit: 10,
+        offset: 0,
+      });
+
+      if (!response._hasError) {
+        const resp: GetComicsByCharacterIdReturnType = response;
+        setLoading(false);
+        setData(resp.data.results);
+        return;
+      }
+
+      setLoading(false);
+    };
+
+    GetData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
 
@@ -66,7 +91,7 @@ function Character(): JSX.Element {
   return (
     <div className={styles['main-container']}>
       <div className={`${styles.header} ${styles['xlg-margin']}`}>
-        <div style={{ display: 'flex', alignItems: 'flex-end' }}>
+        <div className={styles.logo}>
           <Image
             name="logoNoText"
             height={33}
@@ -84,9 +109,8 @@ function Character(): JSX.Element {
           placeholder="Procure por heróis"
           className={`${styles['input-container']}`}
           value=""
-          loading={false}
           setValue={() => ''}
-          disabled={false}
+          disabled={loading}
         />
       </div>
       <div className={styles['body-container']}>
@@ -105,6 +129,7 @@ function Character(): JSX.Element {
                   name={`favorite${isFavorite ? 'On' : 'Of'}`}
                   size={26}
                   onClick={onFavorite}
+                  disabled={loading}
                 />
               </div>
               <Typography
@@ -136,12 +161,18 @@ function Character(): JSX.Element {
 
               <Ratings title="Rating:" className={styles['md-margin']} />
 
-              <div className={styles['last-comic-container']}>
-                <Typography type="p1" weight="bold" className={styles.mr}>
-                  Último quadrinho:
-                </Typography>
-                <Typography type="p1">{moment().format('ll')}</Typography>
-              </div>
+              {data && data.length > 0 && (
+                <div className={styles['last-comic-container']}>
+                  <Typography type="p1" weight="bold" className={styles.mr}>
+                    Último quadrinho:
+                  </Typography>
+                  <Typography type="p1">
+                    {moment(
+                      data[0].dates.find((x) => x.type === 'onsaleDate')?.date
+                    ).format('ll')}
+                  </Typography>
+                </div>
+              )}
             </div>
 
             <img
@@ -153,16 +184,22 @@ function Character(): JSX.Element {
             />
           </div>
 
-          <div className={styles['comic-section']}>
-            <Typography type="p3" weight="bold" className={styles['lg-margin']}>
-              Últimos lançamentos
-            </Typography>
+          {!loading && data != null && (
+            <div className={styles['comic-section']}>
+              <Typography
+                type="p3"
+                weight="bold"
+                className={styles['lg-margin']}
+              >
+                Últimos lançamentos
+              </Typography>
 
-            <ComicsList
-              data={mock}
-              textEmpty="Não há quadrinhos disponíveis!"
-            />
-          </div>
+              <ComicsList
+                data={data}
+                textEmpty="Não há quadrinhos disponíveis!"
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>

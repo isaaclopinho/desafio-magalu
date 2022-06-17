@@ -1,7 +1,7 @@
 import { Image } from 'components/atoms';
 import { CardHero } from 'components/molecules';
 import React, { memo } from 'react';
-import { CharacterType } from 'services/types';
+import { CharacterType } from 'services/characters/types';
 import styles from './HeroCardsList.module.scss';
 
 export interface HeroCardsListProps {
