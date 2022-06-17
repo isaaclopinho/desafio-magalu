@@ -22,12 +22,14 @@ function CardHeroComponent({
   return (
     <div>
       <button
+        data-testid="btn1"
         type="button"
         className={styles['btn-style']}
         onClick={onClick}
         disabled={disabled}
       >
         <img
+          data-testid="hero-img"
           src={src}
           width="250px"
           height="250px"
@@ -37,6 +39,7 @@ function CardHeroComponent({
       </button>
       <div className={styles['description-container']}>
         <button
+          data-testid="btn2"
           type="button"
           className={styles['btn-style']}
           onClick={onClick}
@@ -70,6 +73,7 @@ const propsAreEqual = (
     'isFavorite',
     'onFavorite',
     'onClick',
+    'disabled',
   ];
   return propsToCompare.every((prop) => prevProps[prop] === nextProps[prop]);
 };
