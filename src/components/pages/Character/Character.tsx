@@ -4,7 +4,6 @@ import { CounterSection } from 'components/molecules/CounterSection';
 import { Ratings } from 'components/molecules/Ratings';
 import { ComicsList } from 'components/organisms/ComicsList';
 import CharacterContext from 'context/characters';
-import moment from 'moment';
 import React, {
   useCallback,
   useContext,
@@ -25,6 +24,7 @@ import {
 } from 'services/characters/types';
 import { notifyError } from 'utils/toasts';
 import { GetComicsByCharacterId } from 'services/characters';
+import { formatDate } from 'utils/date';
 import styles from './Character.module.scss';
 
 function Character(): JSX.Element {
@@ -167,9 +167,11 @@ function Character(): JSX.Element {
                     Último quadrinho:
                   </Typography>
                   <Typography type="p1">
-                    {moment(
-                      data[0].dates.find((x) => x.type === 'onsaleDate')?.date
-                    ).format('ll')}
+                    {formatDate({
+                      date: data[0].dates.find((x) => x.type === 'onsaleDate')
+                        ?.date,
+                      mask: 'll',
+                    })}
                   </Typography>
                 </div>
               )}
