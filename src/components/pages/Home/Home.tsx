@@ -17,7 +17,7 @@ import ReactPaginate from 'react-paginate';
 import { favoriteCharacter, maxFavorites } from 'services/favorites';
 import { notifyError } from 'utils/toasts';
 import CharacterContext from 'context/characters';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { clamp } from 'utils/math';
 import FavoritesContext from 'context/favorites';
 import styles from './Home.module.scss';
@@ -27,7 +27,6 @@ function Home(): JSX.Element {
   const { favorites, setFavorites } = useContext(FavoritesContext);
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
 
   const [searchTerm, setSearchTerm] = useState<string | null>(
     searchParams.get('search')
