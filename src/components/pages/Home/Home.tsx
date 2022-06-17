@@ -14,19 +14,17 @@ import {
   GetCharactersReturnType,
 } from 'services/characters/types';
 import ReactPaginate from 'react-paginate';
-import {
-  favoriteCharacter,
-  getFavorites,
-  maxFavorites,
-} from 'services/favorites';
+import { favoriteCharacter, maxFavorites } from 'services/favorites';
 import { notifyError } from 'utils/toasts';
 import CharacterContext from 'context/characters';
 import { useNavigate } from 'react-router-dom';
 import { clamp } from 'utils/math';
+import FavoritesContext from 'context/favorites';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
   const { setState } = useContext(CharacterContext);
+  const { favorites, setFavorites } = useContext(FavoritesContext);
   const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
@@ -37,7 +35,6 @@ function Home(): JSX.Element {
   const [total, setTotal] = useState<number>(0);
   const [herosVisible, setHerosVisible] = useState<boolean>(false);
   const [toggleChecked, setToggleChecked] = useState<boolean>(false);
-  const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
 
   const totalPages = useMemo(() => Math.ceil(total / 20), [total]);
   const currentPage = useMemo(
@@ -115,20 +112,23 @@ function Home(): JSX.Element {
     []
   );
 
-  const onFavorite = useCallback((character: CharacterType) => {
-    const lsFavorites = favoriteCharacter({ character });
+  const onFavorite = useCallback(
+    (character: CharacterType) => {
+      const lsFavorites = favoriteCharacter({ character });
 
-    if (lsFavorites.limitReached) {
-      notifyError(`O máximo de favoritos é ${maxFavorites}.`);
-    }
+      if (lsFavorites.limitReached) {
+        notifyError(`O máximo de favoritos é ${maxFavorites}.`);
+      }
 
-    setFavorites(lsFavorites.characters);
-  }, []);
+      setFavorites(lsFavorites.characters);
+    },
+    [setFavorites]
+  );
 
   const onCharacterClick = useCallback(
     (character: CharacterType) => {
       setState(character);
-      navigate(`/desafio-magalu/character/${character.id}`);
+      navigate(`/desafio-magalu/character/`);
     },
     [setState, navigate]
   );

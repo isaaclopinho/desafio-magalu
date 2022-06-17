@@ -12,23 +12,21 @@ import React, {
   useState,
 } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { favoriteCharacter, maxFavorites } from 'services/favorites';
 import {
-  favoriteCharacter,
-  getFavorites,
-  maxFavorites,
-} from 'services/favorites';
-import {
-  CharacterType,
   ComicType,
   GetComicsByCharacterIdReturnType,
 } from 'services/characters/types';
 import { notifyError } from 'utils/toasts';
 import { GetComicsByCharacterId } from 'services/characters';
 import { formatDate } from 'utils/date';
+import FavoritesContext from 'context/favorites';
 import styles from './Character.module.scss';
 
 function Character(): JSX.Element {
   const { state } = useContext(CharacterContext);
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+
   const [data, setData] = useState<ComicType[] | null>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -67,8 +65,6 @@ function Character(): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
-
   const isFavorite = useMemo(
     () => favorites.find((char) => state?.id === char.id),
     [favorites, state]
@@ -86,7 +82,7 @@ function Character(): JSX.Element {
     }
 
     setFavorites(lsFavorites.characters);
-  }, [state]);
+  }, [state, setFavorites]);
 
   return (
     <div className={styles['main-container']}>

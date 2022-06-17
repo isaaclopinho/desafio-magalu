@@ -7,7 +7,7 @@ function App(): JSX.Element {
   return (
     <Routes>
       <Route path="/desafio-magalu/" element={<Home />} />
-      <Route path="/desafio-magalu/character/:id" element={<Character />} />
+      <Route path="/desafio-magalu/character/" element={<Character />} />
     </Routes>
   );
 }
