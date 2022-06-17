@@ -11,7 +11,7 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { createSearchParams, useNavigate } from 'react-router-dom';
 import { favoriteCharacter, maxFavorites } from 'services/favorites';
 import {
   ComicType,
@@ -27,6 +27,7 @@ function Character(): JSX.Element {
   const { state } = useContext(CharacterContext);
   const { favorites, setFavorites } = useContext(FavoritesContext);
 
+  const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState<ComicType[] | null>(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -84,6 +85,29 @@ function Character(): JSX.Element {
     setFavorites(lsFavorites.characters);
   }, [state, setFavorites]);
 
+  const settingSearchTerm = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearchTerm(e.target.value);
+    },
+    []
+  );
+
+  const handleSearch = useCallback(
+    (str: string) => {
+      if (str.length === 0) {
+        return;
+      }
+
+      navigate({
+        pathname: '/desafio-magalu',
+        search: createSearchParams({
+          search: str,
+        }).toString(),
+      });
+    },
+    [navigate]
+  );
+
   return (
     <div className={styles['main-container']}>
       <div className={`${styles.header} ${styles['xlg-margin']}`}>
@@ -104,8 +128,9 @@ function Character(): JSX.Element {
           type="white"
           placeholder="Procure por heróis"
           className={`${styles['input-container']}`}
-          value=""
-          setValue={() => ''}
+          value={searchTerm}
+          setValue={settingSearchTerm}
+          setCurrentQuery={handleSearch}
           disabled={loading}
         />
       </div>

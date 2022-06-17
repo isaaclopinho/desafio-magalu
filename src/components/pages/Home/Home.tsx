@@ -17,7 +17,7 @@ import ReactPaginate from 'react-paginate';
 import { favoriteCharacter, maxFavorites } from 'services/favorites';
 import { notifyError } from 'utils/toasts';
 import CharacterContext from 'context/characters';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { clamp } from 'utils/math';
 import FavoritesContext from 'context/favorites';
 import styles from './Home.module.scss';
@@ -26,8 +26,12 @@ function Home(): JSX.Element {
   const { setState } = useContext(CharacterContext);
   const { favorites, setFavorites } = useContext(FavoritesContext);
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
 
-  const [searchTerm, setSearchTerm] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string | null>(
+    searchParams.get('search')
+  );
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<CharacterType[]>([]);
@@ -53,6 +57,9 @@ function Home(): JSX.Element {
     if (!loading) {
       return;
     }
+
+    searchParams.delete('search');
+    setSearchParams(searchParams);
 
     const GetData = async (): Promise<void> => {
       setLoading(true);
@@ -245,7 +252,7 @@ function Home(): JSX.Element {
                     setLoading(true);
                   }}
                   pageRangeDisplayed={5}
-                  pageCount={totalPages}
+                  pageCount={clamp(totalPages, 1, Number.MAX_SAFE_INTEGER)}
                   forcePage={currentPage}
                   marginPagesDisplayed={0}
                   activeClassName={styles.active}
