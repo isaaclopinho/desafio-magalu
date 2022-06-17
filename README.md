@@ -25,18 +25,18 @@ O projeto consiste no desafio de Frontend Sr. da Magazine Luiza, no qual foi des
 É possível visualizar o projeto através deste [link](https://isaaclopinho.github.io/desafio-magalu/).
 
 Os requisitos implementados foram:
-- SPA, utilizando Typescript, React, SASS e ES6;
-- Componentes com Atomic Design;
-- Foi utilizado ESlint e Prettier para garantir a qualidade do código;
+- SPA, utilizando `Typescript`, `React`, `SASS` e `ES6`;
+- Componentes com `Atomic Design`;
+- Foi utilizado `ESlint` e `Prettier` para garantir melhor qualidade do código;
 - Não foi utilizado bibliotecas de UI, como bootstrap;
-- Foi utilizado a API da Marvel para consultas de personagens e quadrinhos;
+- Foi utilizado a `API da Marvel` para consultas de personagens e quadrinhos;
 - Página de listagem de personagens, com paginação, filtros de ordenação e favoritos;
 - Página de detalhe do personagem, exibindo dados de personagem e dos últimos quadrinhos;
-- Funções de favoritar/desfavoritar com persistência de dados (em ambas as páginas);
-- Layout Responsivo (Funcionando em celular e desktop);
-- Testes unitários, utilizando testing-library;
-- Disponibilizado relatório de testes em nuvem, através do Codecov;
-- Pipeline CI/CD, para checagem de código, deploy da aplicação no github pages e geração do relatório de testes;
+- Funções de `favoritar/desfavoritar` com persistência de dados (em ambas as páginas);
+- Layout `Responsivo` (Funcionando em celular e desktop);
+- Testes unitários, utilizando `Testing-Library`;
+- Disponibilizado relatório de testes em nuvem, através do `Codecov`;
+- `Pipeline CI/CD`, para checagem de código, deploy da aplicação no github pages e geração do relatório de testes;
 
 ## Pré-requisitos
 
