@@ -14,8 +14,9 @@
     - [`npm test`](#executor-de-testes)
     - [`Codecov`](#codecov)
   - [Scripts Auxiliares](#scripts-auxiliares)
-    - [`npm run cc`](#create-component)
-  - [Para saber mais](#para-saber-mais)
+    - [`Create Component`](#create-component)
+  - [Contatos](#contatos)
+  - [Licença](#licença)
 
 ## Sobre o projeto
 
@@ -110,6 +111,13 @@ Comando que tem função de auxiliar na criação de componentes e seus arquivos
   npm run cc tipodecomponente nome-da-componente
   ```
 
-## Para saber mais
+## Contatos
 
-Caso tenha alguma dúvida sobre React, confira a [documentação do React](https://reactjs.org/).
+Caso tenha alguma dúvida sobre o projeto, contate-me através dos seguintes links:
+
+- [Linkedin](https://www.linkedin.com/in/isaaclopinho/)
+- [Github](https://github.com/isaaclopinho)
+
+## Licença
+
+Distribuído sob a licença CC0 1.0 Universal.
