@@ -19,7 +19,7 @@ function IconComponent({
 }: IconProps): JSX.Element {
   return (
     <button
-      data-testid="btn"
+      data-testid="btn-icon"
       type="button"
       onClick={onClick}
       className={`${styles['btn-style']} ${onClick ? styles.cursor : ''}`}

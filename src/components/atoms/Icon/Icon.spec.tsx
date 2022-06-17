@@ -16,7 +16,7 @@ describe('Testing Icon Component', () => {
 
     render(<Icon name="book" onClick={fn} disabled={false} />);
 
-    const icon = screen.getByTestId('btn');
+    const icon = screen.getByTestId('btn-icon');
 
     fireEvent.click(icon);
 

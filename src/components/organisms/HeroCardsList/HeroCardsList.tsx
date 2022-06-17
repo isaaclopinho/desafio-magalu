@@ -70,6 +70,7 @@ const propsAreEqual = (
     'onFavorite',
     'className',
     'favoriteArray',
+    'onClick',
   ];
   return propsToCompare.every((prop) => prevProps[prop] === nextProps[prop]);
 };
