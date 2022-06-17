@@ -7,7 +7,7 @@ export interface SpinnerProps {
 
 function SpinnerComponent({ size }: SpinnerProps): JSX.Element {
   return (
-    <div className={styles[`lds-ripple-${size}`]}>
+    <div data-testid="spinner" className={styles[`lds-ripple-${size}`]}>
       <div />
       <div />
     </div>
