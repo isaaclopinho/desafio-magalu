@@ -68,7 +68,7 @@ Após adicionar as variáveis do ambiente, siga as instruções abaixo para inst
   ```sh
   npm install
   ```
-  - Caso já tenha o plugin do ESlint instalado na sua IDE, pule para a seção de [Inicialização](#inicialização);
+  - Caso já tenha o plugin do ESlint instalado na sua IDE, pule para a seção de [Inicialização](#-inicialização);
 
 1. No Visual Studio Code, execute o atalho Ctrl+Shift+X para abrir o navegador de extensão;
 1. Pesquise pelo plugin ESlint;
