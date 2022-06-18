@@ -28,7 +28,9 @@ function Home(): JSX.Element {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchTerm, setSearchTerm] = useState<string | null>();
+  const [searchTerm, setSearchTerm] = useState<string | null>(
+    searchParams.get('search')
+  );
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<CharacterType[]>([]);
