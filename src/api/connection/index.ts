@@ -18,14 +18,14 @@ export abstract class AxiosConnection {
     this.connectionURL = connectionURL;
 
     const config: AxiosRequestConfig = {
-      timeout: 3000,
+      timeout: 7000,
       baseURL: connectionURL,
     };
 
     this.service = axios.create({ ...config });
     this.service.interceptors.response.use(
       this.handleSuccess,
-      this.handleError,
+      this.handleError
     );
   }
 

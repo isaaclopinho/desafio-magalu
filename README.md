@@ -63,7 +63,7 @@ Se você não possui as chaves da API, acesse o [site de documentação da Marve
 
 Após adicionar as variáveis do ambiente, siga as instruções abaixo para instalação do projeto:
 
-1. Use o seguinte comando para instalar as dependências do projeto:
+1. Use o seguinte comando no `diretório raiz` para instalar as dependências do projeto:
 
   ```sh
   npm install
