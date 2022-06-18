@@ -5,16 +5,16 @@
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
 ## Conteúdo
-  - [Sobre o projeto](#sobre-o-projeto)
-  - [Pré-requisitos](#pré-requisitos)
-  - [Instalação](#instalação)
-  - [Inicialização](#inicialização)
-  - [Testes unitários](#testes-unitários)
-  - [Scripts Auxiliares](#scripts-auxiliares)
-  - [Contatos](#contatos)
-  - [Licença](#licença)
+  - [📙Sobre o projeto](#📙-sobre-o-projeto)
+  - [⚙️Pré-instalação](#⚙️-pré-instalação)
+  - [🔧Instalação](#🔧-instalação)
+  - [🚀Inicialização](#🚀-inicialização)
+  - [📝Testes unitários](#📝-testes-unitários)
+  - [📌Scripts Auxiliares](#📌-scripts-auxiliares)
+  - [😀Contatos](#😀-contatos)
+  - [🎊Licença](#🎊-licença)
 
-## Sobre o Projeto
+## 📙 Sobre o Projeto
 
 O projeto consiste no desafio de Frontend Sr. da Magazine Luiza e se trata de uma aplicação para listagem e detalhamento de personagens de quadrinhos.
 
@@ -35,7 +35,7 @@ O projeto conta com as seguintes implementações:
 
 Observação: O projeto não utilizou bibliotecas de UI, como bootstrap.
 
-## Pré-Instalação
+## ⚙️ Pré-Instalação
 
 Antes de instalar as dependências e executar o projeto, siga as instruções abaixo para adicionar as variáveis de ambiente:
 
@@ -49,7 +49,9 @@ Antes de instalar as dependências e executar o projeto, siga as instruções ab
   |`REACT_APP_MARVEL_API_PUBLIC_KEY`|chave pública da API da Marvel|
   |`REACT_APP_MARVEL_API_PRIVATE_KEY`|chave privada da API da Marvel|
 
-```
+  - Abaixo, é ilustrado como o arquivo `.env` deve ficar:
+
+```dosini
 REACT_APP_MARVEL_API=https://gateway.marvel.com/
 REACT_APP_MARVEL_API_PUBLIC_KEY=
 REACT_APP_MARVEL_API_PRIVATE_KEY=
@@ -57,7 +59,7 @@ REACT_APP_MARVEL_API_PRIVATE_KEY=
 
 Se você não possui as chaves da API, acesse o [site de documentação da Marvel](https://developer.marvel.com/account) para gerar novas chaves.
 
-## Instalação
+## 🔧 Instalação
 
 Após adicionar as variáveis do ambiente, siga as instruções abaixo para instalação do projeto:
 
@@ -72,7 +74,7 @@ Após adicionar as variáveis do ambiente, siga as instruções abaixo para inst
 1. Pesquise pelo plugin ESlint;
 1. Instale o plugin ESLint para finalizar as configurações do projeto.
 
-## Inicialização
+## 🚀 Inicialização
 
 Para começar a utilizar o projeto, siga as instruções abaixo:
 
@@ -88,7 +90,7 @@ Para começar a utilizar o projeto, siga as instruções abaixo:
   npm run build
   ```
 
-## Testes unitários
+## 📝 Testes unitários
 
 ### Executor de testes
 
@@ -104,7 +106,7 @@ Codecov é uma ferramenta de análise de código para agrupar, mesclar, arquivar
 
 Em vez de executar os testes via linha de comando, você também pode visualizar o [relatório](https://codecov.io/gh/isaaclopinho/desafio-magalu) de cobertura gerado pelo pipeline CI/CD.
 
-## Scripts Auxiliares
+## 📌 Scripts Auxiliares
 
 ### Create Component
 
@@ -118,13 +120,13 @@ Em vez de executar os testes via linha de comando, você também pode visualizar
 - O `tipodecomponente` pode ser `atom`, `molecule`, `organism`, `template` ou `page`.
 - O `nome-da-component` é o nome da componente em `snake-case`.
 
-## Contatos
+## 😀 Contatos
 
 Se você tem alguma dúvida sobre o projeto, entre em contato comigo pelos seguintes links:
 
 - [Linkedin](https://www.linkedin.com/in/isaaclopinho/)
 - [Github](https://github.com/isaaclopinho)
 
-## Licença
+## 🎊 Licença
 
 Distribuído sob a licença CC0 1.0 Universal.
