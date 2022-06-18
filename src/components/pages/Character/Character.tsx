@@ -115,7 +115,12 @@ function Character(): JSX.Element {
   return (
     <div className={styles['main-container']}>
       <div className={`${styles.header} ${styles['xlg-margin']}`}>
-        <button type="button" className={styles.logo} onClick={handleLogo}>
+        <button
+          data-testid="logo"
+          type="button"
+          className={styles.logo}
+          onClick={handleLogo}
+        >
           <Image
             name="logoNoText"
             height={33}
