@@ -15,7 +15,7 @@ import {
 } from 'services/characters/types';
 import ReactPaginate from 'react-paginate';
 import { favoriteCharacter, maxFavorites } from 'services/favorites';
-import { notifyError } from 'utils/toasts';
+import { notify } from 'utils/toasts';
 import CharacterContext from 'context/characters';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { clamp } from 'utils/math';
@@ -28,9 +28,7 @@ function Home(): JSX.Element {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [searchTerm, setSearchTerm] = useState<string | null>(
-    searchParams.get('search')
-  );
+  const [searchTerm, setSearchTerm] = useState<string | null>();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<CharacterType[]>([]);
@@ -81,7 +79,7 @@ function Home(): JSX.Element {
 
         return;
       }
-      notifyError('Ooops! Algo deu errado.');
+      notify('Ooops! Algo deu errado.', 'error');
 
       resetPages();
       setLoading(false);
@@ -123,7 +121,7 @@ function Home(): JSX.Element {
       const lsFavorites = favoriteCharacter({ character });
 
       if (lsFavorites.limitReached) {
-        notifyError(`O máximo de favoritos é ${maxFavorites}.`);
+        notify(`O máximo de favoritos é ${maxFavorites}.`, 'error');
       }
 
       setFavorites(lsFavorites.characters);

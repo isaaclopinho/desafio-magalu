@@ -17,7 +17,7 @@ import {
   ComicType,
   GetComicsByCharacterIdReturnType,
 } from 'services/characters/types';
-import { notifyError } from 'utils/toasts';
+import { notify } from 'utils/toasts';
 import { GetComicsByCharacterId } from 'services/characters';
 import { formatDate } from 'utils/date';
 import FavoritesContext from 'context/favorites';
@@ -79,7 +79,7 @@ function Character(): JSX.Element {
     const lsFavorites = favoriteCharacter({ character: state });
 
     if (lsFavorites.limitReached) {
-      notifyError(`O máximo de favoritos é ${maxFavorites}.`);
+      notify(`O máximo de favoritos é ${maxFavorites}.`, 'error');
     }
 
     setFavorites(lsFavorites.characters);

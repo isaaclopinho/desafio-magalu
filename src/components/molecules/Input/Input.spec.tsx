@@ -20,6 +20,14 @@ describe('Testing the Input Component', () => {
     expect(input.className).toMatch(/white/i);
   });
 
+  it('should display a spinner when loading', () => {
+    render(<Input type="white" value="" loading setValue={jest.fn()} />);
+
+    const spinner = screen.getByTestId('spinner');
+
+    expect(spinner).toBeInTheDocument();
+  });
+
   it('should be able to change the input value', () => {
     let value = '';
 
