@@ -8,6 +8,7 @@ export interface CardHeroProps {
   isFavorite: boolean;
   onFavorite: () => void;
   disabled?: boolean;
+  onClick: () => void;
 }
 
 function CardHeroComponent({
@@ -16,20 +17,38 @@ function CardHeroComponent({
   isFavorite,
   onFavorite,
   disabled,
+  onClick,
 }: CardHeroProps): JSX.Element {
   return (
     <div>
-      <img
-        src={src}
-        width="300px"
-        height="300px"
-        alt="img"
-        className={`${styles.mr} ${styles.img}`}
-      />
+      <button
+        data-testid="btn1"
+        type="button"
+        className={styles['btn-style']}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        <img
+          data-testid="hero-img"
+          src={src}
+          width="250px"
+          height="250px"
+          alt="img"
+          className={`${styles.mr} ${styles.img}`}
+        />
+      </button>
       <div className={styles['description-container']}>
-        <Typography type="h2" weight="bold">
-          {name}
-        </Typography>
+        <button
+          data-testid="btn2"
+          type="button"
+          className={styles['btn-style']}
+          onClick={onClick}
+          disabled={disabled}
+        >
+          <Typography type="h2" weight="bold" className={styles.title}>
+            {name}
+          </Typography>
+        </button>
         <Icon
           name={`favorite${isFavorite ? 'On' : 'Of'}`}
           onClick={onFavorite}
@@ -53,6 +72,8 @@ const propsAreEqual = (
     'name',
     'isFavorite',
     'onFavorite',
+    'onClick',
+    'disabled',
   ];
   return propsToCompare.every((prop) => prevProps[prop] === nextProps[prop]);
 };

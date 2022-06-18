@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    display: flex;
+}
+
+.mr {
+    margin-right: var(--spacing-sm);
+}

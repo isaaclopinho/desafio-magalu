@@ -1,16 +1,18 @@
 .main {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, var(--spacing-fr-sm)));
+    grid-template-columns: repeat(auto-fill, 250px);
     grid-auto-rows: auto;
-    grid-gap: var(--spacing-rem-sm);
-    flex: 1
+    row-gap: var(--spacing-rem-sm);
+    column-gap:  var(--spacing-rem-sm);
+
+    align-content: space-between;
+    justify-content: space-around;
 }
 
 .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .image{

@@ -6,63 +6,125 @@
 
 ## Conteúdo
   - [Sobre o projeto](#sobre-o-projeto)
+  - [Pré-requisitos](#pré-requisitos)
   - [Instalação](#instalação)
-    - [`Variáveis de ambiente`](#variáveis-de-ambiente)
-    - [`Dependências do projeto`](#dependências-do-projeto)
-    - [`Utilizando ESLint`](#utilizando-eslint)
   - [Inicialização](#inicialização)
-    - [`npm start`](#npm-start)
-    - [`npm run build`](#npm-run-build)
   - [Testes unitários](#testes-unitários)
-    - [`npm test`](#npm-test)
-    - [`Codecov`](#codecov)
   - [Scripts Auxiliares](#scripts-auxiliares)
-    - [`npm run cc`](#npm-run-cc)
-    - [`npm run lint`](#npm-run-lint)
-    - [`npm run predeploy`](#npm-run-predeploy)
-    - [`npm run deploy`](#npm-run-deploy)
-  - [Para saber mais](#para-saber-mais)
+  - [Contatos](#contatos)
+  - [Licença](#licença)
 
-## Sobre o projeto
+## Sobre o Projeto
+
+O projeto consiste no desafio de Frontend Sr. da Magazine Luiza e se trata de uma aplicação para listagem e detalhamento de personagens de quadrinhos.
+
+Para visualizar o projeto, acesse o link [Desafio Magalu](https://isaaclopinho.github.io/desafio-magalu/).
+
+O projeto conta com as seguintes implementações:
+- SPA, utilizando `Typescript`, `React`, `SASS` e `ES6`;
+- Componentes estruturados em `Atomic Design`;
+- `ESlint` e `Prettier` para garantir melhor qualidade do código;
+- `API da Marvel` para consultas de personagens e quadrinhos;
+- Página de listagem de personagens com paginação, filtros de ordenação e favoritos;
+- Página de detalhe do personagem para exibir dados de personagem e dos últimos quadrinhos;
+- Funções de `favoritar/desfavoritar` personagens com persistência de dados;
+- Layout `Responsivo` para celular e desktop;
+- Testes unitários com `Testing-Library`;
+- Relatório de testes em nuvem através do `Codecov`;
+- `Pipeline CI/CD` para checagem de código, deploy da aplicação no `github pages` e geração do relatório de testes.
+
+Observação: O projeto não utilizou bibliotecas de UI, como bootstrap.
+
+## Pré-Instalação
+
+Antes de instalar as dependências e executar o projeto, siga as instruções abaixo para adicionar as variáveis de ambiente:
+
+1. Crie um arquivo `.env` na raiz do projeto;
+1. Adicione as variáveis de ambiente `REACT_APP_MARVEL_API`, `REACT_APP_MARVEL_API_PUBLIC_KEY` e `REACT_APP_MARVEL_API_PRIVATE_KEY`.
+  - A tabela abaixo mostra o valor das variáveis de ambiente.
+
+  |Variável do ambiente|Valor da variável|
+  |-|-|
+  |`REACT_APP_MARVEL_API`|url da API de consulta (`https://gateway.marvel.com/`)|
+  |`REACT_APP_MARVEL_API_PUBLIC_KEY`|chave pública da API da Marvel|
+  |`REACT_APP_MARVEL_API_PRIVATE_KEY`|chave privada da API da Marvel|
+
+```
+REACT_APP_MARVEL_API=https://gateway.marvel.com/
+REACT_APP_MARVEL_API_PUBLIC_KEY=
+REACT_APP_MARVEL_API_PRIVATE_KEY=
+```
+
+Se você não possui as chaves da API, acesse o [site de documentação da Marvel](https://developer.marvel.com/account) para gerar novas chaves.
 
 ## Instalação
 
-### `Variáveis de ambiente`
+Após adicionar as variáveis do ambiente, siga as instruções abaixo para instalação do projeto:
 
-### `Dependências do projeto`
+1. Use o seguinte comando para instalar as dependências do projeto:
 
-### `Utilizando ESLint`
+  ```sh
+  npm install
+  ```
+  - Caso já tenha o plugin do ESlint instalado na sua IDE, pule para a seção de [Inicialização](#inicialização);
+
+1. No Visual Studio Code, execute o atalho Ctrl+Shift+X para abrir o navegador de extensão;
+1. Pesquise pelo plugin ESlint;
+1. Instale o plugin ESLint para finalizar as configurações do projeto.
 
 ## Inicialização
 
-### `npm start`
+Para começar a utilizar o projeto, siga as instruções abaixo:
 
-Executa o aplicativo em modo de desenvolvimento.\
-Abra o link [http://localhost:3000](http://localhost:3000) para visualizá-lo no navegador.
+1. Para iniciar o aplicativo em modo de desenvolvimento, execute o seguinte comando:
 
-### `npm run build`
+  ```sh
+  npm start
+  ```
 
-Compila o aplicativo para produção na pasta `build` e o aplicativo está pronto para ser implantado!
+2. Para compilar o aplicativo para produção na pasta `build`, execute o seguinte comando:
+
+  ```sh
+  npm run build
+  ```
 
 ## Testes unitários
 
-### `npm test`
+### Executor de testes
 
-Inicia o executor de testes no modo de exibição interativa.
+1. Para executar os testes no modo de exibição interativa, execute o seguinte comando:
 
-### `Codecov`
+  ```sh
+  npm test
+  ```
 
-Codecov é uma ferramenta de análise de código com a qual os usuários podem agrupar, mesclar, arquivar e comparar relatórios de cobertura. A cobertura de código descreve quais linhas de código foram executadas pelo conjunto de testes e quais não foram.
+### Codecov
 
-Caso não queira executar os testes via linha de comando, é possível visualizar o [relatório](https://codecov.io/gh/isaaclopinho/desafio-magalu) de cobertura gerado pelo pipeline CI/CD.
+Codecov é uma ferramenta de análise de código para agrupar, mesclar, arquivar e comparar relatórios de cobertura. A cobertura de código aponta as linhas de código executadas e não executadas pelo conjunto de testes.
+
+Em vez de executar os testes via linha de comando, você também pode visualizar o [relatório](https://codecov.io/gh/isaaclopinho/desafio-magalu) de cobertura gerado pelo pipeline CI/CD.
 
 ## Scripts Auxiliares
 
-### `npm run cc`
-### `npm run lint`
-### `npm run deploy`
-### `npm run predeploy`
+### Create Component
 
-## Para saber mais
+`Create Component` é um comando que auxilia a criação de componentes e seus arquivos auxiliares. O arquivo de estilo, de testes e TSX da componente é criado seguindo os padrões estabelecidos.
 
-Caso tenha alguma dúvida sobre React, confira a [documentação do React](https://reactjs.org/).
+1. Para criar uma componente, execute o seguinte comando:
+
+  ```sh
+  npm run cc tipodecomponente nome-da-componente
+  ```
+- O `tipodecomponente` pode ser `atom`, `molecule`, `organism`, `template` ou `page`.
+- O `nome-da-component` é o nome da componente em `snake-case`.
+
+## Contatos
+
+Se você tem alguma dúvida sobre o projeto, entre em contato comigo pelos seguintes links:
+
+- [Linkedin](https://www.linkedin.com/in/isaaclopinho/)
+- [Github](https://github.com/isaaclopinho)
+
+## Licença
+
+Distribuído sob a licença CC0 1.0 Universal.

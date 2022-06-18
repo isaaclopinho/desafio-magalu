@@ -18,6 +18,7 @@ function ImageComponent({
 }: ImageProps): JSX.Element {
   return (
     <img
+      data-testid="id-image"
       src={Images[name]}
       width={width}
       height={height}

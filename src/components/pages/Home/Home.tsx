@@ -1,20 +1,34 @@
 import { Image, Toggle, Typography } from 'components/atoms';
 import { IconText, Input } from 'components/molecules';
 import { HeroCardsList } from 'components/organisms';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { GetCharacters, GetCharactersReturnType } from 'services/characters';
-import { CharacterType } from 'services/types';
-import ReactPaginate from 'react-paginate';
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { GetCharacters } from 'services/characters';
 import {
-  favoriteCharacter,
-  getFavorites,
-  maxFavorites,
-} from 'services/favorites';
-import { notifyError } from 'utils/toasts';
+  CharacterType,
+  GetCharactersReturnType,
+} from 'services/characters/types';
+import ReactPaginate from 'react-paginate';
+import { favoriteCharacter, maxFavorites } from 'services/favorites';
+import { notify } from 'utils/toasts';
+import CharacterContext from 'context/characters';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { clamp } from 'utils/math';
+import FavoritesContext from 'context/favorites';
 import styles from './Home.module.scss';
 
 function Home(): JSX.Element {
-  const [searchTerm, setSearchTerm] = useState<string | null>(null);
+  const { setState } = useContext(CharacterContext);
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [searchTerm, setSearchTerm] = useState<string | null>();
 
   const [loading, setLoading] = useState<boolean>(false);
   const [data, setData] = useState<CharacterType[]>([]);
@@ -22,9 +36,12 @@ function Home(): JSX.Element {
   const [total, setTotal] = useState<number>(0);
   const [herosVisible, setHerosVisible] = useState<boolean>(false);
   const [toggleChecked, setToggleChecked] = useState<boolean>(false);
-  const [favorites, setFavorites] = useState<CharacterType[]>(getFavorites());
 
   const totalPages = useMemo(() => Math.ceil(total / 20), [total]);
+  const currentPage = useMemo(
+    () => Math.floor(clamp(offset, 0, Number.MAX_SAFE_INTEGER) / 20),
+    [offset]
+  );
 
   const resetPages = useCallback(() => {
     setData([]);
@@ -37,6 +54,9 @@ function Home(): JSX.Element {
     if (!loading) {
       return;
     }
+
+    searchParams.delete('search');
+    setSearchParams(searchParams);
 
     const GetData = async (): Promise<void> => {
       setLoading(true);
@@ -59,7 +79,7 @@ function Home(): JSX.Element {
 
         return;
       }
-      notifyError('Ooops! Algo deu errado.');
+      notify('Ooops! Algo deu errado.', 'error');
 
       resetPages();
       setLoading(false);
@@ -83,8 +103,8 @@ function Home(): JSX.Element {
 
       if (!loading) {
         setLoading(true);
+        setOffset(0);
       }
-      setOffset(0);
     },
     [loading, resetPages]
   );
@@ -96,15 +116,26 @@ function Home(): JSX.Element {
     []
   );
 
-  const onFavorite = useCallback((character: CharacterType) => {
-    const lsFavorites = favoriteCharacter({ character });
+  const onFavorite = useCallback(
+    (character: CharacterType) => {
+      const lsFavorites = favoriteCharacter({ character });
 
-    if (lsFavorites.limitReached) {
-      notifyError(`O máximo de favoritos é ${maxFavorites}.`);
-    }
+      if (lsFavorites.limitReached) {
+        notify(`O máximo de favoritos é ${maxFavorites}.`, 'error');
+      }
 
-    setFavorites(lsFavorites.characters);
-  }, []);
+      setFavorites(lsFavorites.characters);
+    },
+    [setFavorites]
+  );
+
+  const onCharacterClick = useCallback(
+    (character: CharacterType) => {
+      setState(character);
+      navigate(`/desafio-magalu/character/`);
+    },
+    [setState, navigate]
+  );
 
   return (
     <div className={styles['full-height']}>
@@ -168,14 +199,14 @@ function Home(): JSX.Element {
                   fontType="p1"
                   iconSize={25}
                   text="Ordenar por nome - A/Z"
-                  className={styles.mr}
                   textClassName={styles.text}
+                  iconClassName={styles.icon}
                 />
                 <Toggle
                   checked={toggleChecked}
                   onChecked={setToggleChecked}
-                  className={styles.mr}
                   disabled={loading}
+                  className={styles.toggle}
                 />
                 <IconText
                   iconName="favoriteOn"
@@ -185,6 +216,7 @@ function Home(): JSX.Element {
                   iconSize={18}
                   text="Somente Favoritos"
                   textClassName={styles.text}
+                  iconClassName={styles.icon}
                 />
               </div>
             </div>
@@ -193,6 +225,8 @@ function Home(): JSX.Element {
               favoriteArray={favorites}
               className={styles['xlg-margin']}
               onFavorite={onFavorite}
+              onClick={onCharacterClick}
+              disabled={loading}
             />
             <div
               style={{
@@ -215,8 +249,8 @@ function Home(): JSX.Element {
                     setLoading(true);
                   }}
                   pageRangeDisplayed={5}
-                  pageCount={totalPages}
-                  forcePage={Math.floor(offset / 20)}
+                  pageCount={clamp(totalPages, 1, Number.MAX_SAFE_INTEGER)}
+                  forcePage={currentPage}
                   marginPagesDisplayed={0}
                   activeClassName={styles.active}
                   disableInitialCallback

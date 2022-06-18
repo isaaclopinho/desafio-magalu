@@ -1,0 +1,13 @@
+.card {
+    margin-bottom: var(--spacing-md);
+}
+
+.img {
+    margin-bottom: var(--spacing-sm);
+}
+
+.description{
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
