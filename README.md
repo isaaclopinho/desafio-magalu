@@ -118,7 +118,7 @@ Em vez de executar os testes via linha de comando, você também pode visualizar
   npm run cc tipodecomponente nome-da-componente
   ```
 - O `tipodecomponente` pode ser `atom`, `molecule`, `organism`, `template` ou `page`.
-- O `nome-da-component` é o nome da componente em `snake-case`.
+- O `nome-da-componente` é o nome da componente em `snake-case`.
 
 ## 😀 Contatos
 
