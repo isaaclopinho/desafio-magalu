@@ -1,10 +1,10 @@
-# Desafio Magalu - Frontend Sr.
+# 🔥 Desafio Magalu - Frontend Sr.
 
 [![CI/CD](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml/badge.svg)](https://github.com/isaaclopinho/desafio-magalu/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/isaaclopinho/desafio-magalu/branch/master/graph/badge.svg)](https://codecov.io/gh/isaaclopinho/desafio-magalu)
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
-## Conteúdo
+## 🗺️ Conteúdo
   - [📙Sobre o projeto](#📙-sobre-o-projeto)
   - [⚙️Pré-instalação](#⚙️-pré-instalação)
   - [🔧Instalação](#🔧-instalação)
