@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { Character } from './index';
@@ -40,6 +40,19 @@ describe('Testing Character Page', () => {
 
     const input = screen.getByRole('textbox');
     userEvent.type(input, 'type');
+
+    expect(mockedUsedNavigate).toBeCalled();
+  });
+
+  it('should redirect to homepage when click in logo', async () => {
+    render(
+      <BrowserRouter>
+        <Character />
+      </BrowserRouter>
+    );
+
+    const logo = screen.getByTestId('logo');
+    fireEvent.click(logo);
 
     expect(mockedUsedNavigate).toBeCalled();
   });

@@ -108,10 +108,19 @@ function Character(): JSX.Element {
     [navigate]
   );
 
+  const handleLogo = useCallback(() => {
+    navigate('/desafio-magalu');
+  }, [navigate]);
+
   return (
     <div className={styles['main-container']}>
       <div className={`${styles.header} ${styles['xlg-margin']}`}>
-        <div className={styles.logo}>
+        <button
+          data-testid="logo"
+          type="button"
+          className={styles.logo}
+          onClick={handleLogo}
+        >
           <Image
             name="logoNoText"
             height={33}
@@ -122,7 +131,7 @@ function Character(): JSX.Element {
           <Typography type="h3" weight="bold" className={styles['text-logo']}>
             Search heros
           </Typography>
-        </div>
+        </button>
 
         <Input
           type="white"
