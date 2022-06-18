@@ -5,14 +5,14 @@
 [![License: CC0-1.0](https://img.shields.io/github/license/isaaclopinho/desafio-magalu?logoColor=cc0)](./license.md)
 
 ## 🗺️ Conteúdo
-  - [📙Sobre o projeto](#📙-sobre-o-projeto)
-  - [⚙️Pré-instalação](#⚙️-pré-instalação)
-  - [🔧Instalação](#🔧-instalação)
-  - [🚀Inicialização](#🚀-inicialização)
-  - [📝Testes unitários](#📝-testes-unitários)
-  - [📌Scripts Auxiliares](#📌-scripts-auxiliares)
-  - [😀Contatos](#😀-contatos)
-  - [🎊Licença](#🎊-licença)
+  - [📙Sobre o projeto](#-sobre-o-projeto)
+  - [⚙️Pré-instalação](#%EF%B8%8F-pré-instalação)
+  - [🔧Instalação](#-instalação)
+  - [🚀Inicialização](#-inicialização)
+  - [📝Testes unitários](#-testes-unitários)
+  - [📌Scripts Auxiliares](#-scripts-auxiliares)
+  - [😀Contatos](#-contatos)
+  - [🎊Licença](#-licença)
 
 ## 📙 Sobre o Projeto
 
